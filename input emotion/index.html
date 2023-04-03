@@ -1,0 +1,107 @@
+<strong>Enter a synonym for any of these emotions into the box.Type in an adjective that describes your current emotion. Make sure all letters are lowercase!</strong>
+<ul>
+  <li>Melancholy</li>
+  <li>Joy</li>
+  <li>Rage</li>
+  <li>Indian</li>
+</ul>
+<a href="https://jiya-sav.github.io/SSJN/data/songs" class="btn btn-primary">Vote for Songs Here!</a>
+
+<form onsubmit="return false">
+  <!-- On Enter the Input box was getting cleared. So added onsubmit=return false-->
+    <label for="emotion">Feeling Emotional?</label><br>
+    <input type="text" id="emotion" name="emotion"><br>
+    <button id="runAPI" onclick="getSongs()">Get Songs</button>
+    <!-- <input type="submit" value="generate songs"> -->
+    <p>Song For You:</p>
+    <p id="song"></p>
+  </form>
+
+  <script>
+   
+   function getSongs(){
+    //document.getElementById("emotion").value = emotion;
+   var type = document.getElementById("emotion").value;
+   // synonyms are added by || type== ''
+   if(type=='joyous' || type == 'happy' || type== 'elated' || type== 'cheerful' || type== 'content' || type== 'gleeful' || type== 'delighted' || type== 'jolly'){
+    document.getElementById("song").innerHTML = (GetRandom(happy));
+     }
+   else if(type=='melancholy' || type=='sad' || type== 'unhappy' || type== 'dejected' || type== 'sorrowful' || type== 'depressed' || type== 'miserable' || type== 'pessimistic' || type== 'mournful' || type== 'heartbroken'){
+    document.getElementById("song").innerHTML = (GetRandom(sad));
+      }
+   else if(type=='rage' || type== 'angry' || type== 'furious'){
+    document.getElementById("song").innerHTML = (GetRandom(rage));
+      }
+   else if(type=='indian' || type=='desi' || type=='south asian' || type =='brown'){
+    document.getElementById("song").innerHTML = (GetRandom(indian));
+      }
+    }
+
+   var emotion = document.getElementById("emotion").value;
+  
+  const url = "https://ssjn.nighthawkcodescrums.gq/api/song/";
+  
+  
+  
+  var sad=[];
+  var happy=[];
+  var rage=[];
+  var indian=[];
+  // fetch - used to GET value from API
+   const response = fetch(url, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+    mode: "cors",
+    cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'omit' // include, *same-origin, omit
+  }).then(response=> 
+    response.json().then(
+      data => {
+          console.log(data);
+          data.forEach((item) => {
+  console.log('ID: ' + item.id);
+  console.log('Happy: ' + item.happy);
+  console.log('Sad: ' + item.sad);
+  console.log('Rage: ' + item.rage);
+  console.log('Indian: ' + item.indian);
+  console.log('Song: ' + item.song);
+
+  // tried together, if doesnt work, will try writing multiple if for each inequality
+  if(item.happy > item.sad && item.happy > item.rage && item.happy > item.indian){
+    happy.push(item.song);
+  }
+
+  if(item.sad > item.happy && item.sad > item.rage && item.sad > item.indian){
+    sad.push(item.song);
+  }
+
+  if(item.rage > item.happy && item.rage > item.sad && item.rage > item.indian){
+    rage.push(item.song)
+  }
+
+  if(item.indian > item.happy && item.indian > item.sad && item.indian > item.rage){
+    indian.push(item.song);
+  }
+});
+    
+    console.log(happy);
+    console.log(sad);
+    console.log(rage);
+    console.log(indian);
+       //document.getElementById("song").innerHTML = JSON.stringify(data);
+       getSongs();
+    
+    }));
+  
+  
+
+function GetRandom(arr)
+{
+  // Math.RAndon gets a randon number between 0 and 1 and then we multiply it with array length.
+  // Floor gives the he Math.floor() function always rounds down and returns the largest integer less than or equal to a given number.
+  var rI = Math.floor(Math.random() * arr.length); 
+  var rE  = arr[rI];
+  return rE;
+}
+   
+  </script>
