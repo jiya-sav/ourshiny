@@ -4,20 +4,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>API | Our Shiny</title>
+<title>Front End Demo | Our Shiny</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="API" />
+<meta property="og:title" content="Front End Demo" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Spotify playlist thingy." />
 <meta property="og:description" content="Spotify playlist thingy." />
-<link rel="canonical" href="https://jiya-sav.github.io/ourshiny/api/overview" />
-<meta property="og:url" content="https://jiya-sav.github.io/ourshiny/api/overview" />
+<link rel="canonical" href="https://jiya-sav.github.io/ourshiny/input%20emotion" />
+<meta property="og:url" content="https://jiya-sav.github.io/ourshiny/input%20emotion" />
 <meta property="og:site_name" content="Our Shiny" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="API" />
+<meta property="twitter:title" content="Front End Demo" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Spotify playlist thingy.","headline":"API","url":"https://jiya-sav.github.io/ourshiny/api/overview"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Spotify playlist thingy.","headline":"Front End Demo","url":"https://jiya-sav.github.io/ourshiny/input%20emotion"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/ourshiny/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jiya-sav.github.io/ourshiny/feed.xml" title="Our Shiny" /><link rel="shortcut icon" type="image/x-icon" href="/ourshiny/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -80,85 +80,139 @@ window.onload = wrap_img;
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/ourshiny/schedule">Schedule</a><a class="page-link" href="/ourshiny/frontend/overview">Frontend</a><a class="page-link" href="/ourshiny/api/overview">API</a><a class="page-link" href="/ourshiny/search/">Search</a><a class="page-link" href="/ourshiny/categories/ap">AP Standards</a><a class="page-link" href="/ourshiny/categories/cte">CTE Standards</a><a class="page-link" href="/ourshiny/about/">About</a><a class="page-link" href="/ourshiny/input%20emotion/">Front End Demo</a></div>
+        <div class="trigger"><a class="page-link" href="/ourshiny/search/">Search</a><a class="page-link" href="/ourshiny/about/">About</a><a class="page-link" href="/ourshiny/input%20emotion">Front End Demo</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <table>
-    <tr>
-        <td><img src="/ourshiny//images/logo.png" height="60" title="Data" alt="" /></td>
-        <td><a href="/ourshiny/api/overview">Overview</a></td>
-        <td><a href="/ourshiny/data/covid">Covid19 RapidAPI</a></td>
-        <td><a href="/ourshiny/data/jokes">Jokes API</a></td>
-        <td><a href="/ourshiny/data/database">Users Database</a></td>
-        <td><a href="/ourshiny/data/login">User Login</a></td>
-    </tr>
-</table>
+        <div class="home"><h1 class="page-heading">Front End Demo</h1><p><strong>Enter a synonym for any of these emotions into the box.Type in an adjective that describes your current emotion. Make sure all letters are lowercase!</strong></p>
+<ul>
+  <li>Melancholy</li>
+  <li>Joy</li>
+  <li>Rage</li>
+  <li>Indian</li>
+</ul>
+<p><a href="https://jiya-sav.github.io/SSJN/data/songs" class="btn btn-primary">Vote for Songs Here!</a></p>
 
-<h3 id="apis-in-this-sub-menu">APIs in this Sub Menu</h3>
-<blockquote>
-  <p>HTML, CSS, and JavaScript are the front-end of the API.  Python and API resource definitions are used for RESTful API definitions. Abstraction of Frontend and Backend code, the exchange of standard data format (JSON), and guidelines for exchange (REST) is a technique that saves a lot of time between developers.  Learning APIs is a highly recommended step for every developer trying to break into the world of tech.</p>
-  <ul>
-    <li>Covid19: RapidAPI example.  This is introducing APIs by accessing something that already exists.  RapidAPI shows how many  practice RESTful definitions.  Almost any data source imagined can be accessed here.</li>
-    <li>Jokes: An introduction to Python RESTful API libraries.  A Python List is used to make a Data Model, but persistence in this technique is limited, each time server is refreshed data is lost.  This example is great for learning, but data is considered volatile.</li>
-    <li>Users: Another RESTful API library example.  However, this backend establishes data persistence through the use of a database.  This data if properly managed in deployment and migrated when changed can last forever.</li>
-  </ul>
-</blockquote>
+<form onsubmit="return false">
+  <!-- On Enter the Input box was getting cleared. So added onsubmit=return false-->
+    <label for="emotion">Feeling Emotional?</label><br />
+    <input type="text" id="emotion" name="emotion" /><br />
+    <button id="runAPI" onclick="getSongs()">Get Songs</button>
+    <!-- <input type="submit" value="generate songs"> -->
+    <p>Song For You:</p>
+    <p id="song"></p>
+  </form>
 
-<h3 id="web-api-overview">Web API Overview</h3>
+<script>
+   
+   function getSongs(){
+    //document.getElementById("emotion").value = emotion;
+   var type = document.getElementById("emotion").value;
+   // synonyms are added by || type== ''
+   if(type=='joyous' || type == 'happy' || type== 'elated' || type== 'cheerful' || type== 'content' || type== 'gleeful' || type== 'delighted' || type== 'jolly'){
+    document.getElementById("song").innerHTML = (GetRandom(happy));
+     }
+   else if(type=='melancholy' || type=='sad' || type== 'unhappy' || type== 'dejected' || type== 'sorrowful' || type== 'depressed' || type== 'miserable' || type== 'pessimistic' || type== 'mournful' || type== 'heartbroken'){
+    document.getElementById("song").innerHTML = (GetRandom(sad));
+      }
+   else if(type=='rage' || type== 'angry' || type== 'furious'){
+    document.getElementById("song").innerHTML = (GetRandom(rage));
+      }
+   else if(type=='indian' || type=='desi' || type=='south asian' || type =='brown'){
+    document.getElementById("song").innerHTML = (GetRandom(indian));
+      }
+    }
 
-<div>
+   var emotion = document.getElementById("emotion").value;
+  
+  const url = "https://ssjn.nighthawkcodescrums.gq/api/song/";
+  
+  
+  
+  var sad=[];
+  var happy=[];
+  var rage=[];
+  var indian=[];
+  // fetch - used to GET value from API
+   const response = fetch(url, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+    mode: "cors",
+    cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'omit' // include, *same-origin, omit
+  }).then(response=> 
+    response.json().then(
+      data => {
+          console.log(data);
+          data.forEach((item) => {
+  console.log('ID: ' + item.id);
+  console.log('Happy: ' + item.happy);
+  console.log('Sad: ' + item.sad);
+  console.log('Rage: ' + item.rage);
+  console.log('Indian: ' + item.indian);
+  console.log('Song: ' + item.song);
 
-    <div style="float: left; margin: 0px 10px 10px 0px;">
-        <a href="https://en.wikipedia.org/wiki/Web_API">
-            <img atl="Wikipedia Web API" src="/ourshiny/images/webapi.png" title="" width="200" />
-        </a>
-    </div>
-    <div>
-        <hr />
-        <p>
-            A Web API is an application programming interface typically for a web browser.  Non-changing or Static Endpoints are used in interacting with the server-side Web APIs.  RESTful Web APIs use HTTP methods to access resources via URL parameters, and use JSON for transmitting text between client and server.
-            <ul>
-                <li>Server.  In these examples, we will be using Python to define REST APIs. Python tools are very popular for building RESTful APIs</li>
-                <ul> 
-                    <li>REST: Representational State Transfer.  A set of guidelines on how to architect a network-connected software system.</li>
-                    <li>Client-server: One guideline is a client and server must be decoupled from each other, allowing each to develop independently.</li>
-                    <li>Layered system: The client may access the resources on the server indirectly through other layers such as a proxy or using authentication. This will be clarified by application and security requirements.</li>
-                </ul>
+  // tried together, if doesnt work, will try writing multiple if for each inequality
+  if(item.happy > item.sad && item.happy > item.rage && item.happy > item.indian){
+    happy.push(item.song);
+  }
 
-                <li>Client.  JavaScript is the frontend language used to consume data from the Python defined REST APIs. Fetch will be used to make HTTP requests, as well as handle HTTP response.  There are four basic HTTP methods, they align with Create, Read, Update, Delete (CRUD).</li>
-                <ul> 
-                    <li>GET =&gt; Retrieve/Read data</li>
-                    <li>POST =&gt; Create data</li>
-                    <li>PUT =&gt; Update data</li>
-                    <li>DELETE =&gt; Delete data</li>
-                </ul>
+  if(item.sad > item.happy && item.sad > item.rage && item.sad > item.indian){
+    sad.push(item.song);
+  }
 
-                <li>REST endpoints will have similarity from application to application.  In planning APIs, for a Users system you can anticipate key methods.  The Users RESTful APIs would likely contain these endpoints.</li>
-                <ul> 
-                    <li>GET: /users =&gt; Get a list of users</li>
-                    <li>GET: /users(id) =&gt; Get a single user</li>
-                    <li>POST: /users =&gt; Create a new user</li>
-                    <li>PUT: /users(id) =&gt; Update a user</li>
-                    <li>DELETE: /users(id) =&gt; Delete a user</li>
-                </ul>
+  if(item.rage > item.happy && item.rage > item.sad && item.rage > item.indian){
+    rage.push(item.song)
+  }
 
-                <li>Once a RESTful API receives and processes an HTTP request, it will return an HTTP response. Included in this response is an HTTP status code.  Common status codes are shown.</li>
-                <ul> 
-                    <li>200 =&gt; OK, this response will then have the promise of JSON data</li>
-                    <li>400 =&gt; Bad Request</li>
-                    <li>404 =&gt; Not Found</li>
-                    <li>500 =&gt; Internal Server Error (aka bug)</li>
-                </ul>
+  if(item.indian > item.happy && item.indian > item.sad && item.indian > item.rage){
+    indian.push(item.song);
+  }
+});
+    
+    console.log(happy);
+    console.log(sad);
+    console.log(rage);
+    console.log(indian);
+       //document.getElementById("song").innerHTML = JSON.stringify(data);
+       getSongs();
+    
+    }));
+  
+  
 
-            </ul>
-        </p>
-        <hr />
-    </div>
+function GetRandom(arr)
+{
+  // Math.RAndon gets a randon number between 0 and 1 and then we multiply it with array length.
+  // Floor gives the he Math.floor() function always rounds down and returns the largest integer less than or equal to a given number.
+  var rI = Math.floor(Math.random() * arr.length); 
+  var rE  = arr[rI];
+  return rE;
+}
+   
+  </script>
 
-</div>
 
+
+
+  
+
+  <!-- Hide posts if front matter flag hide:true -->
+  
+  
+
+  <!-- Sort posts by rank, then date -->
+  
+  
+  
+
+ 
+  
+
+   <!-- Assemble final sorted posts array -->
+  
+  </div>
       </div>
     </main><footer class="site-footer h-card">
   <data class="u-url" href="/ourshiny/"></data>
