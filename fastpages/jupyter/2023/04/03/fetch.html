@@ -4,22 +4,22 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Our Shiny | Spotify playlist thingy.</title>
+<title>Fetching with JavaScript, HTML, and CSS | Our Shiny</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Our Shiny" />
+<meta property="og:title" content="Fetching with JavaScript, HTML, and CSS" />
+<meta name="author" content="Trent Cardall" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Spotify playlist thingy." />
-<meta property="og:description" content="Spotify playlist thingy." />
-<link rel="canonical" href="https://jiya-sav.github.io/ourshiny/" />
-<meta property="og:url" content="https://jiya-sav.github.io/ourshiny/" />
+<meta name="description" content="Lesson" />
+<meta property="og:description" content="Lesson" />
+<link rel="canonical" href="https://jiya-sav.github.io/ourshiny/fastpages/jupyter/2023/04/03/fetch.html" />
+<meta property="og:url" content="https://jiya-sav.github.io/ourshiny/fastpages/jupyter/2023/04/03/fetch.html" />
 <meta property="og:site_name" content="Our Shiny" />
-<meta property="og:image" content="https://jiya-sav.github.io/ourshiny/images/logo.png" />
-<meta property="og:type" content="website" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="https://jiya-sav.github.io/ourshiny/images/logo.png" />
-<meta property="twitter:title" content="Our Shiny" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-04-03T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Fetching with JavaScript, HTML, and CSS" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"Spotify playlist thingy.","headline":"Our Shiny","image":"https://jiya-sav.github.io/ourshiny/images/logo.png","name":"Our Shiny","url":"https://jiya-sav.github.io/ourshiny/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Trent Cardall"},"dateModified":"2023-04-03T00:00:00-05:00","datePublished":"2023-04-03T00:00:00-05:00","description":"Lesson","headline":"Fetching with JavaScript, HTML, and CSS","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiya-sav.github.io/ourshiny/fastpages/jupyter/2023/04/03/fetch.html"},"url":"https://jiya-sav.github.io/ourshiny/fastpages/jupyter/2023/04/03/fetch.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/ourshiny/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jiya-sav.github.io/ourshiny/feed.xml" title="Our Shiny" /><link rel="shortcut icon" type="image/x-icon" href="/ourshiny/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -87,152 +87,101 @@ window.onload = wrap_img;
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<style>
-      h3 {color:rgb(255, 255, 255);
-        font-family: brush script mt; 
-        font-size: 30px;
-      }
-      h4 {color: #ff8c00;
-      text-align: center;
-      text-transform: uppercase;
-      font-size: 20px;
-      }
-    .neonText {
-        color: #fff;
-        text-shadow:
-            0 0 7px #fff,
-            0 0 10px #fff,
-            0 0 21px #fff,
-            0 0 42px rgb(107, 255, 154),
-            0 0 82px rgb(107, 255, 154),
-            0 0 92px rgb(107, 255, 154),
-            0 0 102px rgb(107, 255, 154),
-            0 0 151px rgb(107, 255, 154);
-      }
-              
-      body {
-        font-size: 18px;
-        background-color: #010a01;
-      }  
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Fetching with JavaScript, HTML, and CSS</h1><p class="page-description">Lesson</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-04-03T00:00:00-05:00" itemprop="datePublished">
+        Apr 3, 2023
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Trent Cardall</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
       
-      h1, h2 {
-        text-align: center;
-        text-transform: uppercase;
-        font-weight: 400;
-      }
+          <a class="category-tags-link" href="/ourshiny/categories/ap#fastpages">fastpages</a>
         
-      h1 {
-          font-size: 4.2rem;
-      }
-        
-      h2 {
-          font-size: 1.8rem;
-      }
+        &nbsp;
       
-      .container {
-        margin-top: 20vh;
-      }                   
-      img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-      } 
-</style>
-</head>
-<body style="background-image: radial-gradient(circle, black 50%, green);">
-    <h1 class="neonText" style="font-family:brush script mt">
-        OUR SHINY
-  </h1>
-    <h2 class="neonText" style="font-family:brush script mt">
-        For more information visit the "About" page!
-    </h2>
-    <br style="line-height: 12em;" />
-    <h4 style="font-family:brush script mt">
-        Blogs
-    </h4>
-</body>
-</html>
+          <a class="category-tags-link" href="/ourshiny/categories/ap#jupyter">jupyter</a>
+        
+        
+      
+      </p>
+    
 
-<hr />
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/jiya-sav/ourshiny/tree/master/_notebooks/2023-04-03-fetch.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/ourshiny/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/jiya-sav/ourshiny/master?filepath=_notebooks%2F2023-04-03-fetch.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/ourshiny/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/jiya-sav/ourshiny/blob/master/_notebooks/2023-04-03-fetch.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/ourshiny/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Fjiya-sav%2Fourshiny%2Fblob%2Fmaster%2F_notebooks%2F2023-04-03-fetch.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/ourshiny/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#What-is-fetching">What is fetching </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2023-04-03-fetch.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="What-is-fetching">
+<a class="anchor" href="#What-is-fetching" aria-hidden="true"><span class="octicon octicon-link"></span></a>What is fetching<a class="anchor-link" href="#What-is-fetching"> </a>
+</h2>
+</div>
+</div>
+</div>
+</div>
 
 
 
-  
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="jiya-sav/ourshiny"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/ourshiny/fastpages/jupyter/2023/04/03/fetch.html" hidden></a>
+</article>
 
-  <!-- Hide posts if front matter flag hide:true -->
-  
-  
-
-  <!-- Sort posts by rank, then date -->
-  
-  
-  
-
- 
-  
-
-   <!-- Assemble final sorted posts array -->
-  
-  <ul class="post-list"><li><div class="Box box-shadow-medium rounded-1 col-12"><div class="col-8 d-table-cell p-3">
-        <h3>
-          <a class="post-link" href="/ourshiny/points/33">
-            Week of 05-08, AP Week 2
-          </a>
-        </h3>
-        <p class="post-meta-description">Ninth week of tri 3</p>
-          <p class="post-meta">May 8, 2023</p>
-      </div>
-  </div></li><li><div class="Box box-shadow-medium rounded-1 col-12"><div class="col-8 d-table-cell p-3">
-        <h3>
-          <a class="post-link" href="/ourshiny/points/32">
-            Week of 05-01, AP Week 1
-          </a>
-        </h3>
-        <p class="post-meta-description">Eighth week of tri 3</p>
-          <p class="post-meta">May 1, 2023</p>
-      </div>
-  </div></li><li><div class="Box box-shadow-medium rounded-1 col-12"><div class="col-8 d-table-cell p-3">
-        <h3>
-          <a class="post-link" href="/ourshiny/fastpages/jupyter/2023/04/03/fetch.html">
-            Fetching with JavaScript, HTML, and CSS
-          </a>
-        </h3>
-        <p class="post-meta-description">Lesson</p>
-          <p class="post-meta">Apr 3, 2023</p>
-      </div>
-  </div></li><li><div class="Box box-shadow-medium rounded-1 col-12"><div class="col-8 d-table-cell p-3">
-        <h3>
-          <a class="post-link" href="/ourshiny/2023/04/02/Guide-to-making-a-new-repo.html">
-            Guide To Making A New Repo
-          </a>
-        </h3>
-        <p class="post-meta-description"></p>
-          <p class="post-meta">Apr 2, 2023</p>
-      </div>
-  </div></li><li><div class="Box box-shadow-medium rounded-1 col-12"><div class="col-8 d-table-cell p-3">
-        <h3>
-          <a class="post-link" href="/ourshiny/2023/03/30/Guide-to-making-a-new-repo.html">
-            Guide To Making A New Repo
-          </a>
-        </h3>
-        <p class="post-meta-description"></p>
-          <p class="post-meta">Mar 30, 2023</p>
-      </div>
-  </div></li><li><div class="Box box-shadow-medium rounded-1 col-12"><div class="col-8 d-table-cell p-3">
-        <h3>
-          <a class="post-link" href="/ourshiny/2023/03/29/DS-hashmaps.html">
-            Data Structures- Hashmaps, Sets, Hash Tables, Hashing and Collisions
-          </a>
-        </h3>
-        <p class="post-meta-description">Observing hashmaps with python dictionaries</p>
-          <p class="post-meta">Mar 29, 2023</p>
-      </div>
-  </div></li></ul>
-
-    </div>
       </div>
     </main><footer class="site-footer h-card">
   <data class="u-url" href="/ourshiny/"></data>
