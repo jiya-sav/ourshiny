@@ -85,24 +85,230 @@ window.onload = wrap_img;
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home"><h1 class="page-heading">Front End Demo</h1><p><strong>Enter a synonym for any of these emotions into the box.Type in an adjective that describes your current emotion. Make sure all letters are lowercase!</strong></p>
-<ul>
-  <li>Melancholy</li>
-  <li>Joy</li>
-  <li>Rage</li>
-  <li>Indian</li>
-</ul>
-<p><a href="https://jiya-sav.github.io/SSJN/data/songs" class="btn btn-primary">Vote for Songs Here!</a></p>
+        <div class="home">
+  <style>
+  @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
 
-<form onsubmit="return false">
-  <!-- On Enter the Input box was getting cleared. So added onsubmit=return false-->
-    <label for="emotion">Feeling Emotional?</label><br />
-    <input type="text" id="emotion" name="emotion" /><br />
-    <button id="runAPI" onclick="getSongs()">Get Songs</button>
-    <!-- <input type="submit" value="generate songs"> -->
-    <p>Song For You:</p>
-    <p id="song"></p>
-  </form>
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+button {
+  margin-bottom: 20px;
+}
+
+
+input {
+  margin-bottom: 20px;
+}
+
+a {
+  margin-bottom: 20px;
+}
+
+form {
+  margin-top: 20px;
+}
+
+h3{
+  font-size: 25px;
+}
+
+body{
+    font-family: 'Exo', sans-serif;
+    text-align: center;
+}
+
+h5{
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px rgb(107, 255, 154),
+      0 0 82px rgb(107, 255, 154),
+      0 0 92px rgb(107, 255, 154),
+      0 0 102px rgb(107, 255, 154),
+      0 0 151px rgb(107, 255, 154);
+}
+
+.area{
+    background: transparent;  
+    background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);  
+    width: 100%;
+    height:100vh;
+}
+
+.circles{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+}
+
+.circles li{
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    animation: animate 25s linear infinite;
+    bottom: -150px;
+    
+}
+
+.circles li:nth-child(1){
+    left: 25%;
+    width: 80px;
+    height: 80px;
+    animation-delay: 0s;
+}
+
+
+.circles li:nth-child(2){
+    left: 10%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 2s;
+    animation-duration: 12s;
+}
+
+.circles li:nth-child(3){
+    left: 70%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 4s;
+}
+
+.circles li:nth-child(4){
+    left: 40%;
+    width: 60px;
+    height: 60px;
+    animation-delay: 0s;
+    animation-duration: 18s;
+}
+
+.circles li:nth-child(5){
+    left: 65%;
+    width: 20px;
+    height: 20px;
+    animation-delay: 0s;
+}
+
+.circles li:nth-child(6){
+    left: 75%;
+    width: 110px;
+    height: 110px;
+    animation-delay: 3s;
+}
+
+.circles li:nth-child(7){
+    left: 35%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 7s;
+}
+
+.circles li:nth-child(8){
+    left: 50%;
+    width: 25px;
+    height: 25px;
+    animation-delay: 15s;
+    animation-duration: 45s;
+}
+
+.circles li:nth-child(9){
+    left: 20%;
+    width: 15px;
+    height: 15px;
+    animation-delay: 2s;
+    animation-duration: 35s;
+}
+
+.circles li:nth-child(10){
+    left: 85%;
+    width: 150px;
+    height: 150px;
+    animation-delay: 0s;
+    animation-duration: 11s;
+}
+
+
+
+@keyframes animate {
+
+    0%{
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+        border-radius: 0;
+    }
+
+    100%{
+        transform: translateY(-1000px) rotate(720deg);
+        opacity: 0;
+        border-radius: 50%;
+    }
+
+}
+</style>
+
+<body class="centered">
+<div class="area">
+      <ul class="circles">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+      </ul>
+      <h3>Enter a synonym for any of these emotions into the box.Type in an adjective that describes your current emotion. Make sure all letters are lowercase!</h3>
+      <br style="line-height: 30em;" />
+      <h5 style="font-family:brush script mt">
+        Melancholy
+      </h5>
+      <h5 style="font-family:brush script mt">
+        Joy
+      </h5>
+      <h5 style="font-family:brush script mt">
+        Rage
+      </h5>
+      <h5 style="font-family:brush script mt">
+        Indian
+      </h5>
+      <form onsubmit="return false">
+        <!-- On Enter the Input box was getting cleared. So added onsubmit=return false-->
+          <label for="emotion" style="font-size:20px">Feeling Emotional?</label>
+          <br />
+          <input type="text" id="emotion" name="emotion" />
+          <br />
+          <button id="runAPI" onclick="getSongs()">Get Songs</button>
+          <br />
+          <!-- <input type="submit" value="generate songs"> -->
+          <p>Song For You:</p>
+          <br />
+          <p id="song"></p>
+        </form>
+      <br />
+      <a href="https://jiya-sav.github.io/SSJN/data/songs" class="btn btn-primary">Vote for Songs Here!</a>
+</div>
+
+</body>
 
 <script>
    
@@ -191,7 +397,7 @@ function GetRandom(arr)
   return rE;
 }
    
-  </script>
+</script>
 
 
 
