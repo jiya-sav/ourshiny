@@ -321,11 +321,17 @@ table td { border: 1px solid #404040; }
 
 /*-----------------------------------*/
 /*--- IMPORT STYLES FOR FASTPAGES ---*/
-html, body, input, textarea, select, button { color: rgba(255, 255, 255, 0.87) !important; background-color: #121212 !important; font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1.5; }
+html, input, textarea, select { color: rgba(255, 255, 255, 0.87) !important; background-color: #121212 !important; font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1.5; }
 
-a { color: #ff8c00 !important; text-decoration: none; font-weight: bold; }
+body { color: rgba(255, 255, 255, 0.87) !important; font-family: 'Roboto', sans-serif; font-size: 16px; line-height: 1.5; --bg-color: rgb(0, 39, 18) !important; --bg-color-light: #007a39; background: linear-gradient(-45deg, var(--bg-color), var(--bg-color-light), var(--bg-color), var(--bg-color-light)); background-size: 600% 600% !important; animation: gradient 15s ease infinite !important; height: 100%; }
 
-a:hover { color: #f9c54d !important; }
+@keyframes gradient { 0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; } }
+
+a { color: #47cf77 !important; text-decoration: none; font-weight: bold; }
+
+a:hover { color: #ffe44d !important; }
 
 .site-title, .site-title:visited, .site-nav, .page-link { color: rgba(255, 255, 255, 0.87) !important; font-family: 'Helvetica Neue', sans-serif; font-weight: bold; }
 
@@ -341,19 +347,19 @@ pre, code { border-color: #333333; background-color: #1e1e1e; }
 
 .post-content p, .post-content li { color: rgba(255, 255, 255, 0.69); font-family: 'Roboto', sans-serif; font-size: 16px; }
 
-.btn { background-color: #ff8c00 !important; color: rgba(255, 255, 255, 0.87) !important; border-color: #f7d488 !important; font-weight: bold; }
+.btn { background-color: #47cf77 !important; color: rgba(255, 255, 255, 0.87) !important; border-color: #68ff9d !important; font-weight: bold; }
 
-.btn:hover { background-color: #f9c54d !important; }
+.btn:hover { background-color: #ffe44d !important; }
 
-table th { background-color: #ff8c00; border-color: #f7d488; color: rgba(255, 255, 255, 0.87); font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: bold; }
+table th { border-color: #68ff9d; color: rgba(255, 255, 255, 0.87); font-family: 'Roboto', sans-serif; font-size: 16px; font-weight: bold; background-color: #47cf77; }
 
-table td { background-color: #121212; border-color: #333333; color: rgba(255, 255, 255, 0.69); font-family: 'Roboto', sans-serif; font-size: 16px; }
+table td { border-color: #333333; color: rgba(255, 255, 255, 0.69); font-family: 'Roboto', sans-serif; font-size: 16px; background-color: #121212; }
 
 .flash { color: #121212 !important; filter: brightness(80%); }
 
 canvas { filter: invert(100%); }
 
-.post-list > li > div { box-shadow: none !important; background-color: #1e1e1e; border: none !important; }
+.post-list > li > div { background-color: #1e1e1e; }
 
 li .post-meta-description { color: rgba(255, 255, 255, 0.69) !important; font-family: 'Roboto', sans-serif; font-size: 14px; }
 

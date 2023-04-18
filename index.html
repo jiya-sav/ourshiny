@@ -93,9 +93,10 @@ window.onload = wrap_img;
 <style>
       h3 {color:rgb(255, 255, 255);
         font-family: brush script mt; 
+        text-align: center;
         font-size: 30px;
       }
-      h4 {color: #ff8c00;
+      h4 {color: #ffe44e;
       text-align: center;
       text-transform: uppercase;
       font-size: 20px;
@@ -115,7 +116,6 @@ window.onload = wrap_img;
               
       body {
         font-size: 18px;
-        background-color: #010a01;
       }  
       
       h1, h2 {
@@ -135,18 +135,13 @@ window.onload = wrap_img;
       .container {
         margin-top: 20vh;
       }                   
-      img {
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-      } 
 </style>
 </head>
-<body style="background-image: radial-gradient(circle, black 50%, green);">
-    <h1 class="neonText" style="font-family:brush script mt">
+<body>
+    <h1 class="neonText">
         OUR SHINY
   </h1>
-    <h2 class="neonText" style="font-family:brush script mt">
+    <h2 class="neonText">
         For more information visit the "About" page!
     </h2>
     <br style="line-height: 12em;" />
@@ -176,52 +171,212 @@ window.onload = wrap_img;
 
    <!-- Assemble final sorted posts array -->
   
-  <ul class="post-list"><li><div class="Box box-shadow-medium rounded-1 col-12"><div class="col-8 d-table-cell p-3">
-        <h3>
-          <a class="post-link" href="/ourshiny/points/33">
-            Week of 05-08, AP Week 2
-          </a>
-        </h3>
-        <p class="post-meta-description">Ninth week of tri 3</p>
-          <p class="post-meta">May 8, 2023</p>
-      </div>
-  </div></li><li><div class="Box box-shadow-medium rounded-1 col-12"><div class="col-8 d-table-cell p-3">
-        <h3>
-          <a class="post-link" href="/ourshiny/points/32">
-            Week of 05-01, AP Week 1
-          </a>
-        </h3>
-        <p class="post-meta-description">Eighth week of tri 3</p>
-          <p class="post-meta">May 1, 2023</p>
-      </div>
-  </div></li><li><div class="Box box-shadow-medium rounded-1 col-12"><div class="col-8 d-table-cell p-3">
-        <h3>
-          <a class="post-link" href="/ourshiny/2023/04/17/Guide-to-making-a-new-repo.html">
-            Guide To Making A New Repo
-          </a>
-        </h3>
-        <p class="post-meta-description"></p>
-          <p class="post-meta">Apr 17, 2023</p>
-      </div>
-  </div></li><li><div class="Box box-shadow-medium rounded-1 col-12"><div class="col-8 d-table-cell p-3">
-        <h3>
-          <a class="post-link" href="/ourshiny/fastpages/jupyter/2023/04/03/fetch.html">
-            Fetching with JavaScript, HTML, and CSS
-          </a>
-        </h3>
-        <p class="post-meta-description">Lesson</p>
-          <p class="post-meta">Apr 3, 2023</p>
-      </div>
-  </div></li><li><div class="Box box-shadow-medium rounded-1 col-12"><div class="col-8 d-table-cell p-3">
-        <h3>
-          <a class="post-link" href="/ourshiny/2023/04/02/Guide-to-making-a-new-repo.html">
-            Guide To Making A New Repo
-          </a>
-        </h3>
-        <p class="post-meta-description"></p>
-          <p class="post-meta">Apr 2, 2023</p>
-      </div>
-  </div></li></ul>
+  <ul class="post-list"><li><style>
+  p {
+    text-align: center;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  a {
+    text-align: center;
+  }
+
+  .box {
+    /* Center the content horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    border-radius: 50px;
+    border-style: double;  
+    margin: auto;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 1s ease-in-out;
+  }
+  .box:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+  }
+</style>
+
+<div class="box"><div class="col-8 d-table-cell p-3">
+    <h3>
+      <a class="post-link" href="/ourshiny/points/33">
+        Week of 05-08, AP Week 2
+      </a>
+    </h3>
+    <p class="post-meta-description">Ninth week of tri 3</p>
+    <p class="post-meta">May 8, 2023</p>
+  </div>
+</div>
+</li><li><style>
+  p {
+    text-align: center;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  a {
+    text-align: center;
+  }
+
+  .box {
+    /* Center the content horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    border-radius: 50px;
+    border-style: double;  
+    margin: auto;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 1s ease-in-out;
+  }
+  .box:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+  }
+</style>
+
+<div class="box"><div class="col-8 d-table-cell p-3">
+    <h3>
+      <a class="post-link" href="/ourshiny/points/32">
+        Week of 05-01, AP Week 1
+      </a>
+    </h3>
+    <p class="post-meta-description">Eighth week of tri 3</p>
+    <p class="post-meta">May 1, 2023</p>
+  </div>
+</div>
+</li><li><style>
+  p {
+    text-align: center;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  a {
+    text-align: center;
+  }
+
+  .box {
+    /* Center the content horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    border-radius: 50px;
+    border-style: double;  
+    margin: auto;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 1s ease-in-out;
+  }
+  .box:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+  }
+</style>
+
+<div class="box"><div class="col-8 d-table-cell p-3">
+    <h3>
+      <a class="post-link" href="/ourshiny/2023/04/17/Guide-to-making-a-new-repo.html">
+        Guide To Making A New Repo
+      </a>
+    </h3>
+    <p class="post-meta-description"></p>
+    <p class="post-meta">Apr 17, 2023</p>
+  </div>
+</div>
+</li><li><style>
+  p {
+    text-align: center;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  a {
+    text-align: center;
+  }
+
+  .box {
+    /* Center the content horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    border-radius: 50px;
+    border-style: double;  
+    margin: auto;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 1s ease-in-out;
+  }
+  .box:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+  }
+</style>
+
+<div class="box"><div class="col-8 d-table-cell p-3">
+    <h3>
+      <a class="post-link" href="/ourshiny/fastpages/jupyter/2023/04/03/fetch.html">
+        Fetching with JavaScript, HTML, and CSS
+      </a>
+    </h3>
+    <p class="post-meta-description">Lesson</p>
+    <p class="post-meta">Apr 3, 2023</p>
+  </div>
+</div>
+</li><li><style>
+  p {
+    text-align: center;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  a {
+    text-align: center;
+  }
+
+  .box {
+    /* Center the content horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    border-radius: 50px;
+    border-style: double;  
+    margin: auto;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 1s ease-in-out;
+  }
+  .box:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+  }
+</style>
+
+<div class="box"><div class="col-8 d-table-cell p-3">
+    <h3>
+      <a class="post-link" href="/ourshiny/2023/04/02/Guide-to-making-a-new-repo.html">
+        Guide To Making A New Repo
+      </a>
+    </h3>
+    <p class="post-meta-description"></p>
+    <p class="post-meta">Apr 2, 2023</p>
+  </div>
+</div>
+</li></ul>
 
     </div>
       </div>
