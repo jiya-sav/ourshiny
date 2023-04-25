@@ -1,0 +1,52 @@
+<html>
+<body>
+<form id="uinput" action="#">
+  Input song: <input type="text" name="song1" id="song1">
+  <input type="button" onclick="handleSubmit()" value="Submit">
+</form>
+<script>
+function calculateSimilarity(song1, song2) {
+  const energy = Math.abs(song1.energy - song2.energy);
+  const acousticness = Math.abs(song1.aco - song2.aco);
+  const similarityScore = 1 / (energy + acousticness);
+  return similarityScore;
+}
+
+function findSimilarSongs(targetSong, allSongs, numResults = 5) {
+  const similarityScores = [];
+  for (const song of allSongs) {
+    const similarityScore = calculateSimilarity(targetSong, song);
+    similarityScores.push({ song, similarityScore });
+  }
+  similarityScores.sort((a, b) => b.similarityScore - a.similarityScore);
+  return similarityScores.slice(0, numResults).map(item => item.song);
+}
+
+function handleSubmit() {
+  const inputSongTitle = document.getElementById("song1").value;
+  const targetSong = songs.find(song => song.title === inputSongTitle);
+  const similarSongs = findSimilarSongs(targetSong, songs);
+  console.log(similarSongs);
+}
+
+// example songs data
+const songs = [
+  {
+    "title": "Song A",
+    "energy": 0.8,
+    "aco": 0.2
+  },
+  {
+    "title": "Song B",
+    "energy": 0.6,
+    "aco": 0.8
+  },
+  {
+    "title": "Song C",
+    "energy": 0.4,
+    "aco": 0.6
+  }
+];
+</script>
+</body>
+</html>
