@@ -102,7 +102,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      9 min read
     
 </span></p>
 
@@ -152,13 +152,42 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h2"><a href="#Installing-Conda-Scripts">Installing Conda Scripts </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#For-Windows">For Windows </a></li>
+<li class="toc-entry toc-h3"><a href="#For-MacOS">For MacOS </a></li>
+</ul>
+</li>
 <li class="toc-entry toc-h2"><a href="#Frontend-and-Backend">Frontend and Backend </a></li>
-<li class="toc-entry toc-h2"><a href="#Installing-Conda-Scripts">Installing Conda Scripts </a></li>
-<li class="toc-entry toc-h2"><a href="#Github/Fastpages-Setup">Github/Fastpages Setup </a></li>
-<li class="toc-entry toc-h2"><a href="#Buiding-requirements-and-pull-requests-in-GitHub">Buiding requirements and pull requests in GitHub </a></li>
+<li class="toc-entry toc-h2"><a href="#Fetching">Fetching </a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#The-Basics">The Basics </a></li>
+<li class="toc-entry toc-h3"><a href="#About-Fetching">About Fetching </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Method">Method </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h3"><a href="#Filtering-Data">Filtering Data </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#Third-Party-APIs">Third Party APIs </a>
+<ul>
+<li class="toc-entry toc-h4"><a href="#Example-with-Weather-API">Example with Weather API </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Github/Fastpages-Setup">Github/Fastpages Setup </a></li>
+<li class="toc-entry toc-h1"><a href="#Pull-requests-in-GitHub">Pull requests in GitHub </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#How-to">How-to </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Hacks">Hacks </a>
+<ul>
 <li class="toc-entry toc-h2"><a href="#Overview">Overview </a></li>
-<li class="toc-entry toc-h2"><a href="#Fetching">Fetching </a></li>
 <li class="toc-entry toc-h2"><a href="#In-Our-Project">In Our Project </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Hacks-and-Point-Division">Hacks and Point Division </a></li>
 </ul><audio id="myAudio" autoplay loop>
   <source src="/ourshiny//audios/ebyt.mp3" type="audio/mpeg">
 </source></audio>
@@ -175,6 +204,53 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Installing-Conda-Scripts">
+<a class="anchor" href="#Installing-Conda-Scripts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing Conda Scripts<a class="anchor-link" href="#Installing-Conda-Scripts"> </a>
+</h2>
+<h3 id="For-Windows">
+<a class="anchor" href="#For-Windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>For Windows<a class="anchor-link" href="#For-Windows"> </a>
+</h3>
+<p><img src="https://github.com/kayleehou/myproject/blob/master/images/condadiagram.PNG?raw=true" alt="conda image"></p>
+<p>After you've installed VSCode using WSL, install Anaconda on WSL.</p>
+<p>Anaconda is like a big tool box for your computer, it has tools and libraries that you might need for data analysis, programming, and computing. Conda is a tool that helps you manage these tools inside Anaconda. It lets you install, update, delete, and organize packages and materials. Anaconda Python packages include pandas, numpy, sqlite, jupyter, bash, and other kernels. Conda script tells Conda what tools and materials you need and how to install them in your Anaconda toolbox.</p>
+<h3 id="For-MacOS">
+<a class="anchor" href="#For-MacOS" aria-hidden="true"><span class="octicon octicon-link"></span></a>For MacOS<a class="anchor-link" href="#For-MacOS"> </a>
+</h3>
+<blockquote>
+<p>Python2 install on MacOS</p>
+<ul>
+<li>Install <a href="https://www.python.org/ftp/python/2.7.18/python-2.7.18-macosx10.9.pkg">Python2</a>&gt; VSCode install on MacOS.  </li>
+<li>Install <a href="https://code.visualstudio.com/docs/setup/mac">VSCode</a>&gt; Anaconda install on MacOS.</li>
+<li>Download for MacOS:<a href="https://www.anaconda.com/products/distribution">Anaconda</a>- Run Install: Answer yes to questions
+Homebrew install on MacOS</li>
+<li>Homebrew is a tool that helps you easily install and manage software on your Mac. Think of it like a virtual store for your computer where you can browse, download and install a variety of useful programs and tools.</li>
+<li>Copy and Paste to Install from Terminal <a href="https://brew.sh">Homebrew</a>    - Copy <code>bash ... curl ...</code>  command using copy box on website<ul>
+<li>Launch <code>terminal</code> from search bar</li>
+<li>Paste <code>bash ... curl ...</code> command into Terminal ... </li>
+<li>Make sure command starts, this should provide feedback/output in terminal and could take a long time, like 10-min, there could be a prompt in the middle, at about 5-minutes.  Follow any on screen instructions provided in terminal output to finish.</li>
+</ul>
+</li>
+<li>Homebrew installs a tool called "brew" which helps add and manage developer packages on MacOS. </li>
+</ul>
+</blockquote>
+<p>Start a new WSL terminal. Now the terminal prompt should be prefixed with (base) from Anaconda install. If not, go back to Anaconda install.</p>
+<blockquote>
+<p>Having Homebrew and Anaconda allows you to easily install Key Packages needed on MacOS like the commands below are all neccessary:```bash$ brew list # list packages
+$ brew update # update package list
+$ brew upgrade # upgrade packages
+$ brew install git  # install latest git
+$ brew install python # install python3 for development
+$ python --version # version of python3 installed
+$ brew install java # openjdk install</p>
+</blockquote>
+<p><strong>type conda --version and take a screen shot as proof that you have it installed</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Frontend-and-Backend">
 <a class="anchor" href="#Frontend-and-Backend" aria-hidden="true"><span class="octicon octicon-link"></span></a>Frontend and Backend<a class="anchor-link" href="#Frontend-and-Backend"> </a>
 </h2>
@@ -186,10 +262,52 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Installing-Conda-Scripts">
-<a class="anchor" href="#Installing-Conda-Scripts" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installing Conda Scripts<a class="anchor-link" href="#Installing-Conda-Scripts"> </a>
+<h2 id="Fetching">
+<a class="anchor" href="#Fetching" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fetching<a class="anchor-link" href="#Fetching"> </a>
 </h2>
-<p>type conda --version and take a screen shot as proof that you have it installed</p>
+<h3 id="The-Basics">
+<a class="anchor" href="#The-Basics" aria-hidden="true"><span class="octicon octicon-link"></span></a>The Basics<a class="anchor-link" href="#The-Basics"> </a>
+</h3>
+<ul>
+<li>Fetching means getting data from somewhere else, like a website or database.</li>
+</ul>
+<p>JavaScript is a programming language that can be used to fetch data from a website or database.</p>
+<ul>
+<li>When you fetch data with JavaScript, you first need to tell it where to get the data from. This is called the URL.</li>
+<li>Once you know the URL, you can use JavaScript to go and get the data from that URL.</li>
+<li>When the data comes back, it's usually in a format like text or JSON. This means that you might need to do some additional work to turn the data into something that your website or application can use.</li>
+<li>Once you have the data, you can use JavaScript to display it on your website or application. You can put it in a table, show it on a map, or do anything else you can think of.</li>
+</ul>
+<p><img src="/ourshiny/images/copied_from_nb/images/fetch.jpg" alt=""></p>
+<h3 id="About-Fetching">
+<a class="anchor" href="#About-Fetching" aria-hidden="true"><span class="octicon octicon-link"></span></a>About Fetching<a class="anchor-link" href="#About-Fetching"> </a>
+</h3>
+<h4 id="Method">
+<a class="anchor" href="#Method" aria-hidden="true"><span class="octicon octicon-link"></span></a>Method<a class="anchor-link" href="#Method"> </a>
+</h4>
+<p>The fetching methods are in line with the CRUD (Create, Read, Update, Delete), and list as follows:</p>
+<ul>
+<li>"GET": Probably the most common method you would use, which is in line with "read". It essentially "gets" the information from the API and brings it to the frontend where you are able to display it and read it.</li>
+<li>"POST": Lines up with "create" and adds a resource to the API. You will probably mostly be using this with your own API or if a website adds your input to an API.</li>
+<li>"PUT" and "PATCH": Essentially the "update" for API. Use "PUT" if you want to change the whole resource, or "PATCH" if you want to change just one part of a resource.</li>
+<li>"DELETE": Exactly how it sounds, deletes a resource from the API</li>
+</ul>
+<p>Popcorn Hacks:</p>
+<ul>
+<li>What method should I use if I want to display some of the data stored in the backend?</li>
+<li>What method would I use if something in the data is misspelled and I want to fix it real quick?</li>
+<li>What method should I use if I want to add a new entry to the data?</li>
+</ul>
+<h3 id="Filtering-Data">
+<a class="anchor" href="#Filtering-Data" aria-hidden="true"><span class="octicon octicon-link"></span></a>Filtering Data<a class="anchor-link" href="#Filtering-Data"> </a>
+</h3>
+<ul>
+<li>If we want to display API data, we are going to have to filter what we want to display for multiple reasons<ul>
+<li>These include making sure that the user only sees information they need to see, and not anything else</li>
+<li>Also we need to present the information in a readable format instead of just seeing the raw data</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
@@ -197,18 +315,302 @@ window.onload = wrap_img;
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Github/Fastpages-Setup">
-<a class="anchor" href="#Github/Fastpages-Setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Github/Fastpages Setup<a class="anchor-link" href="#Github/Fastpages-Setup"> </a>
+<p>The below code segment, is from a previous project. It shows the use of a url being fetched, and the JavaScript fetch() command being implemented.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="o">//</span> <span class="n">prepare</span> <span class="n">fetch</span> <span class="n">urls</span>
+  <span class="o">//</span> <span class="n">const</span> <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://ssjn.nighthawkcodescrums.gq/api/song"</span><span class="p">;</span>
+  <span class="n">const</span> <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://ssjncpt.duckdns.org/api/song"</span><span class="p">;</span>
+  <span class="n">const</span> <span class="n">sad_url</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="s2">"/sad/"</span><span class="p">;</span>  <span class="o">//</span> <span class="n">sad</span> <span class="n">category</span>
+  <span class="n">const</span> <span class="n">happy_url</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="s2">"/happy/"</span><span class="p">;</span>  <span class="o">//</span> <span class="n">happy</span> <span class="n">category</span>
+  <span class="n">const</span> <span class="n">rage_url</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="s2">"/rage/"</span><span class="p">;</span>  <span class="o">//</span> <span class="n">rage</span> <span class="n">category</span>
+  <span class="n">const</span> <span class="n">indian_url</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="s2">"/indian/"</span><span class="p">;</span> <span class="o">//</span> <span class="n">indian</span> <span class="n">category</span>
+
+  <span class="o">//</span> <span class="n">prepare</span> <span class="n">fetch</span> <span class="n">GET</span> <span class="n">options</span>
+  <span class="n">const</span> <span class="n">options</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span> <span class="o">//</span> <span class="o">*</span><span class="n">GET</span><span class="p">,</span> <span class="n">POST</span><span class="p">,</span> <span class="n">PUT</span><span class="p">,</span> <span class="n">DELETE</span><span class="p">,</span> <span class="n">etc</span><span class="o">.</span>
+    <span class="n">mode</span><span class="p">:</span> <span class="s1">'cors'</span><span class="p">,</span> <span class="o">//</span> <span class="n">cors</span><span class="p">,</span> <span class="o">*</span><span class="n">cors</span><span class="p">,</span> <span class="n">same</span><span class="o">-</span><span class="n">origin</span>
+    <span class="n">cache</span><span class="p">:</span> <span class="s1">'default'</span><span class="p">,</span> <span class="o">//</span> <span class="o">*</span><span class="n">default</span><span class="p">,</span> <span class="n">no</span><span class="o">-</span><span class="n">cache</span><span class="p">,</span> <span class="n">reload</span><span class="p">,</span> <span class="n">force</span><span class="o">-</span><span class="n">cache</span><span class="p">,</span> <span class="n">only</span><span class="o">-</span><span class="k">if</span><span class="o">-</span><span class="n">cached</span>
+    <span class="n">credentials</span><span class="p">:</span> <span class="s1">'omit'</span><span class="p">,</span> <span class="o">//</span> <span class="n">include</span><span class="p">,</span> <span class="o">*</span><span class="n">same</span><span class="o">-</span><span class="n">origin</span><span class="p">,</span> <span class="n">omit</span>
+    <span class="n">headers</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/json'</span>
+      <span class="o">//</span> <span class="s1">'Content-Type'</span><span class="p">:</span> <span class="s1">'application/x-www-form-urlencoded'</span><span class="p">,</span>
+    <span class="p">},</span>
+  <span class="p">};</span>
+  <span class="o">//</span> <span class="n">prepare</span> <span class="n">fetch</span> <span class="n">PUT</span> <span class="n">options</span><span class="p">,</span> <span class="n">clones</span> <span class="k">with</span> <span class="n">JS</span> <span class="n">Spread</span> <span class="n">Operator</span> <span class="p">(</span><span class="o">...</span><span class="p">)</span>
+  <span class="n">const</span> <span class="n">put_options</span> <span class="o">=</span> <span class="p">{</span><span class="o">...</span><span class="n">options</span><span class="p">,</span> <span class="n">method</span><span class="p">:</span> <span class="s1">'PUT'</span><span class="p">};</span> <span class="o">//</span> <span class="n">clones</span> <span class="ow">and</span> <span class="n">replaces</span> <span class="n">method</span>
+
+  <span class="o">//</span> <span class="n">fetch</span> <span class="n">the</span> <span class="n">API</span>
+  <span class="n">fetch</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+    <span class="o">//</span> <span class="n">response</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">RESTful</span> <span class="s2">"promise"</span> <span class="n">on</span> <span class="nb">any</span> <span class="n">successful</span> <span class="n">fetch</span>
+    <span class="o">.</span><span class="n">then</span><span class="p">(</span><span class="n">response</span> <span class="o">=&gt;</span> <span class="p">{</span>
+      <span class="o">//</span> <span class="n">check</span> <span class="k">for</span> <span class="n">response</span> <span class="n">errors</span>
+      <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status</span> <span class="o">!==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+          <span class="n">error</span><span class="p">(</span><span class="s1">'GET API response failure: '</span> <span class="o">+</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span><span class="p">);</span>
+          <span class="k">return</span><span class="p">;</span>
+      <span class="p">}</span>
+      <span class="o">//</span> <span class="n">valid</span> <span class="n">response</span> <span class="n">will</span> <span class="n">have</span> <span class="n">JSON</span> <span class="n">data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Third-Party-APIs">
+<a class="anchor" href="#Third-Party-APIs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Third Party APIs<a class="anchor-link" href="#Third-Party-APIs"> </a>
 </h2>
+<p>3rd Party APIs:
+APIs provided by other developers for public use.</p>
+<p>Programmers can use the content of these APIs to create new functionalities for their programs, or they can also simply take advantage of the data of the API for different uses.</p>
+<p>Ex: A developed can use Google Account login to allow users to log in with their google account
+Ex: Using the content of a weather API to make a weather app</p>
+<p>The functionalities of these APIs are usually accessed via JavaScript (usually) as you’ve seen before in your past projects.</p>
+<p>3rd party APIs are located on third party servers. To access them from JavaScript you first need to connect to the API functionality and make it available on your page.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="o">&lt;</span><span class="n">script</span>
+  <span class="n">src</span><span class="o">=</span><span class="s2">"https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"</span>
+  <span class="n">defer</span><span class="o">&gt;&lt;/</span><span class="n">script</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">link</span>
+  <span class="n">rel</span><span class="o">=</span><span class="s2">"stylesheet"</span>
+  <span class="n">href</span><span class="o">=</span><span class="s2">"https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"</span> <span class="o">/&gt;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here is an example of accessing the objects available in the library above.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">const</span> <span class="nb">map</span> <span class="o">=</span> <span class="n">L</span><span class="o">.</span><span class="n">mapquest</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="s1">'map'</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">center</span><span class="p">:</span> <span class="p">[</span><span class="mf">53.480759</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.242631</span><span class="p">],</span>
+    <span class="n">layers</span><span class="p">:</span> <span class="n">L</span><span class="o">.</span><span class="n">mapquest</span><span class="o">.</span><span class="n">tileLayer</span><span class="p">(</span><span class="s1">'map'</span><span class="p">),</span>
+    <span class="n">zoom</span><span class="p">:</span> <span class="mi">12</span>
+  <span class="p">});</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The process of accessing and using third-party APIs can vary depending on the specific API and the requirements set by the API provider.
+3rd party APIs use developer keys to allow developers access to the API functionality, which protects the owner of the API.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">L</span><span class="o">.</span><span class="n">mapquest</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="s1">'YOUR-API-KEY-HERE'</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Developers must apply to get the key of a certain API, and then include it in their code to be allowed access to the API's functionality.
+Some API keys are accessed slightly differently, but the method is similar for the most part.</p>
+<p><strong>Hack: You’ve used 3rd party APIs before. Go through some of your previous projects/assignments and explain how you implemented a 3rd party API. Reflect on how using the 3rd party API helped.</strong></p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Buiding-requirements-and-pull-requests-in-GitHub">
-<a class="anchor" href="#Buiding-requirements-and-pull-requests-in-GitHub" aria-hidden="true"><span class="octicon octicon-link"></span></a>Buiding requirements and pull requests in GitHub<a class="anchor-link" href="#Buiding-requirements-and-pull-requests-in-GitHub"> </a>
+<h4 id="Example-with-Weather-API">
+<a class="anchor" href="#Example-with-Weather-API" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example with Weather API<a class="anchor-link" href="#Example-with-Weather-API"> </a>
+</h4>
+<ul>
+<li>What method is being used in these cells?</li>
+</ul>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://yahoo-weather5.p.rapidapi.com/weather"</span>
+
+<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"location"</span><span class="p">:</span><span class="s2">"San Diego"</span><span class="p">,</span><span class="s2">"format"</span><span class="p">:</span><span class="s2">"json"</span><span class="p">,</span><span class="s2">"u"</span><span class="p">:</span><span class="s2">"f"</span><span class="p">}</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="s2">"X-RapidAPI-Key"</span><span class="p">:</span> <span class="s2">"4abcb54450msh7468dfd72294e89p18fbaajsn6d4200063b39"</span><span class="p">,</span>
+	<span class="s2">"X-RapidAPI-Host"</span><span class="p">:</span> <span class="s2">"yahoo-weather5.p.rapidapi.com"</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">())</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The fetch worked and we can see all the data, but this is presented in a way that is not very readable. It also has a lot of information we didn't see. Let's say I just want to see the projected weather forecasts.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">"https://yahoo-weather5.p.rapidapi.com/weather"</span>
+
+<span class="n">querystring</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"location"</span><span class="p">:</span><span class="s2">"San Diego"</span><span class="p">,</span><span class="s2">"format"</span><span class="p">:</span><span class="s2">"json"</span><span class="p">,</span><span class="s2">"u"</span><span class="p">:</span><span class="s2">"f"</span><span class="p">}</span>
+
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+	<span class="s2">"X-RapidAPI-Key"</span><span class="p">:</span> <span class="s2">"4abcb54450msh7468dfd72294e89p18fbaajsn6d4200063b39"</span><span class="p">,</span>
+	<span class="s2">"X-RapidAPI-Host"</span><span class="p">:</span> <span class="s2">"yahoo-weather5.p.rapidapi.com"</span>
+<span class="p">}</span>
+
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s2">"GET"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">querystring</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">"San Diego Weather Forecast:"</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span class="n">forecast</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"forecasts"</span><span class="p">)</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">forecast</span><span class="p">):</span>
+	<span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">forecast</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+		<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\t</span><span class="s2">"</span> <span class="o">+</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+	<span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+	<span class="nb">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we can see, we now can see the data in a much more organized and readable format, and we only see the forecasts, which is what we wanted to see.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Github/Fastpages-Setup">
+<a class="anchor" href="#Github/Fastpages-Setup" aria-hidden="true"><span class="octicon octicon-link"></span></a>Github/Fastpages Setup<a class="anchor-link" href="#Github/Fastpages-Setup"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Pull-requests-in-GitHub">
+<a class="anchor" href="#Pull-requests-in-GitHub" aria-hidden="true"><span class="octicon octicon-link"></span></a>Pull requests in GitHub<a class="anchor-link" href="#Pull-requests-in-GitHub"> </a>
+</h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="How-to">
+<a class="anchor" href="#How-to" aria-hidden="true"><span class="octicon octicon-link"></span></a>How-to<a class="anchor-link" href="#How-to"> </a>
 </h2>
+<ol>
+<li>
+<p>After you've cloned a repository and made changes to it, go to pull requests in your Github repository 
+<img src="https://github.com/kayleehou/myproject/blob/master/images/pull_request1.PNG?raw=true" alt="pull request 1"></p>
+</li>
+<li>
+<p>Once you click 'create new pull request,' you should see this with your new changes: 
+<img src="https://github.com/kayleehou/myproject/blob/master/images/pull_request2.PNG?raw=true" alt="pull request 2"></p>
+</li>
+<li>
+<p>Change the title and send the pull request 
+<img src="https://github.com/kayleehou/myproject/blob/master/images/pull_request3.PNG?raw=true" alt="pull request 3"></p>
+</li>
+</ol>
+<h1 id="Hacks">
+<a class="anchor" href="#Hacks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks<a class="anchor-link" href="#Hacks"> </a>
+</h1>
+<p>Turn in your hacks as a pull request, title the pull request as shown in the third step but with your own name. Any other titles will not be accepted.</p>
+
 </div>
 </div>
 </div>
@@ -218,21 +620,6 @@ window.onload = wrap_img;
 <h2 id="Overview">
 <a class="anchor" href="#Overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview<a class="anchor-link" href="#Overview"> </a>
 </h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Fetching">
-<a class="anchor" href="#Fetching" aria-hidden="true"><span class="octicon octicon-link"></span></a>Fetching<a class="anchor-link" href="#Fetching"> </a>
-</h2>
-<p>Fetching means getting retrieving data from a server (self-created, or third party), like a website or database.</p>
-<p>Lecture Question:</p>
-<p>What language do we most commonly use to fetch?</p>
-<p>When fetching data you can manipulate it with a function in javascript, often prompted by a user input or some other indication (like a button). However, you must first specify the location from which the data should be retrieved.</p>
-<p>Below this is defined as the const url.</p>
-
 </div>
 </div>
 </div>
@@ -324,6 +711,24 @@ window.onload = wrap_img;
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>As we can see hear we are fetching from an API and...</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Hacks-and-Point-Division">
+<a class="anchor" href="#Hacks-and-Point-Division" aria-hidden="true"><span class="octicon octicon-link"></span></a>Hacks and Point Division<a class="anchor-link" href="#Hacks-and-Point-Division"> </a>
+</h1>
+<ul>
+<li>Popcorn questions answered within lesson (.2)</li>
+<li>Screenshot showing proof that conda is installed (.1)</li>
+<li>Create 3 quiz questions to demonstrate the main steps in creating a repository on Github (.1)</li>
+<li>Fetch from a third party API, and display json data. Then use the json data in any simple JavaScript function (hint: parse, this makes json data into a JavaScript object) (.4)</li>
+<li>Pull request successful completion: (.1)</li>
+</ul>
+<p>Extra: Use fetch() and display data from an API, self-made or third party (.1)</p>
 
 </div>
 </div>
