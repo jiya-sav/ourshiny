@@ -1,0 +1,193 @@
+---
+layout: fe
+permalink: /sorting
+title: Front End Sorting test
+search_exclude: true
+---
+
+<style>
+  header {
+    background-color: #181818;
+  }
+</style>
+
+<style>
+  @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+
+  * {
+    margin: 0px;
+    padding: 0px;
+  }
+
+  button {
+    margin-bottom: 40px;
+    background-color: #1DB954;
+    color: #FFFFFF;
+    border-radius: 30px;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  button:hover {
+    background-color: #1ED760;
+  }
+
+  input {
+    margin-bottom: 20px;
+  }
+
+  label {
+    margin-bottom: 20px;
+  }
+
+  h3 {
+    margin-bottom: 20px;
+    margin-top: 40px;
+  }
+
+  p {
+    margin-top: 5px;
+    font-size: larger;
+  }
+
+  form {
+    margin-top: 20px;
+  }
+
+  h3 {
+    font-size: 25px;
+  }
+
+  h5 {
+    font-size: 30px;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px rgb(107, 255, 154), 0 0 82px rgb(107, 255, 154),
+      0 0 92px rgb(107, 255, 154), 0 0 102px rgb(107, 255, 154), 0 0 151px rgb(107, 255, 154);
+  }
+
+  body {
+    font-family: 'Exo', sans-serif;
+    text-align: center;
+  }
+</style>
+
+<body>
+  <div>
+    <h3>Enter a song you like that we don't have in our database yet. Make sure all letters are lowercase!</h3>
+    <br style="line-height: 30em;">
+    <form onsubmit="return false">
+      <label for="songTitle" style="font-size: 20px">Title:</label>
+      <br>
+      <input type="text" id="songTitle" name="songTitle">
+      <br>
+      <label for="artist" style="font-size: 20px">Artist:</label>
+      <br>
+      <input type="text" id="artist" name="artist">
+      <br>
+      <label for="topGenre" style="font-size: 20px">Top Genre:</label>
+      <br>
+      <input type="text" id="topGenre" name="topGenre">
+      <br>
+      <label for="year" style="font-size: 20px">Year:</label>
+      <br>
+      <input type="text" id="year" name="year">
+      <br>
+      <label for="bpm" style="font-size: 20px">Beats Per Minute (BPM):</label>
+      <br>
+      <input type="text" id="bpm" name="bpm">
+      <br>
+      <label for="energy" style="font-size: 20px">Energy:</label>
+      <br>
+      <input type="text" id="energy" name="energy">
+      <br>
+      <label for="danceability" style="font-size: 20px">Danceability:</label>
+      <br>
+      <input type="text" id="danceability" name="danceability">
+      <br>
+      <label for="loudness" style="font-size: 20px">Loudness (dB):</label>
+      <br>
+      <input type="text" id="loudness" name="loudness">
+      <br>
+      <label for="liveness" style="font-size: 20px">Liveness:</label>
+      <br>
+      <input type="text" id="liveness" name="liveness">
+      <br>
+      <label for="valence" style="font-size: 20px">Valence:</label>
+      <br>
+      <input type="text" id="valence" name="valence">
+      <br>
+      <label for="duration" style="font-size: 20px">Length (Duration):</label>
+      <br>
+      <input type="text" id="duration" name="duration">
+      <br>
+      <label for="acousticness" style="font-size: 20px">Acousticness:</label>
+      <br>
+      <input type="text" id="acousticness" name="acousticness">
+      <br>
+      <label for="speechiness" style="font-size: 20px">Speechiness:</label>
+      <br>
+      <input type="text" id="speechiness" name="speechiness">
+      <br>
+      <label for="popularity" style="font-size: 20px">Popularity:</label>
+      <br>
+      <input type="text" id="popularity" name="popularity">
+      <br>
+      <button id="runAPI" onclick="getSongs()">Done</button>
+    </form>
+    <br>
+  </div>
+</body>
+
+<script>
+  document.getElementById("link").addEventListener("click", function () {
+    window.location.href = "https://jiya-sav.github.io/SSJN/data/songs";
+  });
+
+  function getSongs() {
+    var songTitle = document.getElementById("songTitle").value;
+    var artist = document.getElementById("artist").value;
+    var topGenre = document.getElementById("topGenre").value;
+    var year = document.getElementById("year").value;
+    var bpm = document.getElementById("bpm").value;
+    var energy = document.getElementById("energy").value;
+    var danceability = document.getElementById("danceability").value;
+    var loudness = document.getElementById("loudness").value;
+    var liveness = document.getElementById("liveness").value;
+    var valence = document.getElementById("valence").value;
+    var duration = document.getElementById("duration").value;
+    var acousticness = document.getElementById("acousticness").value;
+    var speechiness = document.getElementById("speechiness").value;
+    var popularity = document.getElementById("popularity").value;
+
+    // Perform your API call or processing here using the entered values
+
+    // Example: Displaying the entered song title and artist
+    var song = songTitle + " by " + artist;
+    document.getElementById("song").innerHTML = song;
+  }
+  function insertionSort(list) {
+    var n = list.length;
+    for (var i = 1; i < n; i++) {
+      var key = list[i];
+      var j = i - 1;
+      while (j >= 0 && list[j] > key) {
+      list[j + 1] = list[j];
+      j = j - 1;
+      }
+  list[j + 1] = key;
+  }
+  return list;
+  }
+// below line is when function is called; still comfirming deployment so will update later
+// console.log(insertionSort(songdata.csv));
+
+</script>
