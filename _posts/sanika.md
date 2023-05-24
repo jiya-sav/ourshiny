@@ -84,3 +84,4 @@ fetch("http://10.169.55.42:8080/songdatabase")
   })
   .catch(error => console.log("Error fetching song data:", error));
 </script>
+</html>
