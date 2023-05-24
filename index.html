@@ -96,11 +96,43 @@ window.onload = wrap_img;
   footer {
     background-color: #181818;
 } 
+.timer {
+  width: 200px;
+  border: solid 1px #ffffff;
+  border-radius: 6px;
+  position: fixed;
+  top: 50%;
+  left: 20px;
+}
+
+.timer .inner {
+  height: 15px;
+  animation: timer-start;
+  animation-duration: 40s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: paused;
+  animation-timing-function: linear;
+  border-radius: 6px;
+}
+
+@keyframes timer-start {
+  0% {
+    width: 0%;
+    background: #F00;
+  }
+  100% {
+    width: 100%;
+    background: #1aff00;
+  }
+}
 </style>
 
 <audio id="myAudio" autoplay loop>
   <source src="/ourshiny//audios/ebyt.mp3" type="audio/mpeg">
 </audio>
+
+<div id='timer'></div>
 
 <div class="home"><html>
 <head>
@@ -540,7 +572,6 @@ h2 {
   top:60px;
   left:370px;
 }
-
 </style>
 </head>
 <body>
@@ -623,7 +654,6 @@ h2 {
     </h4>
 </body>
 </html>
-
 <hr />
 
 
@@ -677,11 +707,11 @@ h2 {
 
 <div class="box"><div class="col-8 d-table-cell p-3">
     <h3>
-      <a class="post-link" href="/ourshiny/2023/05/23/Guide-to-making-a-new-repo.html">
-        Guide To Making A New Repo
+      <a class="post-link" href="/ourshiny/markdown/project/2023/05/23/spotify.html">
+        Spotify API
       </a>
     </h3>
-    <p class="post-meta-description"></p>
+    <p class="post-meta-description">Test</p>
     <p class="post-meta">May 23, 2023</p>
   </div>
 </div>
@@ -759,17 +789,92 @@ h2 {
 
 <div class="box"><div class="col-8 d-table-cell p-3">
     <h3>
-      <a class="post-link" href="/ourshiny/markdown/project/2023/05/23/spotify.html">
-        Spotify API
+      <a class="post-link" href="/ourshiny/2023/05/23/Guide-to-making-a-new-repo.html">
+        Guide To Making A New Repo
       </a>
     </h3>
-    <p class="post-meta-description">Test</p>
+    <p class="post-meta-description"></p>
     <p class="post-meta">May 23, 2023</p>
+  </div>
+</div>
+</li><li><style>
+  p {
+    text-align: center;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  a {
+    text-align: center;
+  }
+
+  .box {
+    /* Center the content horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    border-radius: 50px;
+    border-style: double;  
+    margin: auto;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 1s ease-in-out;
+  }
+  .box:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+  }
+</style>
+
+<div class="box"><div class="col-8 d-table-cell p-3">
+    <h3>
+      <a class="post-link" href="/ourshiny/2023/04/02/Guide-to-making-a-new-repo.html">
+        Guide To Making A New Repo
+      </a>
+    </h3>
+    <p class="post-meta-description"></p>
+    <p class="post-meta">Apr 2, 2023</p>
   </div>
 </div>
 </li></ul>
 
     </div>
+
+<script>
+  function initTimer(id, duration, callback) {
+    var t = document.getElementById(id);
+    t.className = 'timer';
+    var tInner = document.createElement('div');
+    tInner.className = 'inner';
+    tInner.style.animationDuration = duration;
+    if (typeof(callback) === 'function')
+      tInner.addEventListener('animationend', callback);
+      t.appendChild(tInner);
+
+      // Check if audio is playing
+      var audio = document.getElementById('myAudio');
+      audio.onplay = function() {
+        t.style.display = 'block';
+        // Start animation
+        tInner.style.animationPlayState = 'running';
+      };
+
+      audio.onpause = function() {
+        t.style.display = 'none';
+        // Pause animation
+        tInner.style.animationPlayState = 'paused';
+      };
+  }
+
+  addEventListener('load', () => {
+    initTimer('timer', '228s', () => {
+      // Callback function
+    });
+  });
+</script>  
+
       </div>
     </main><footer class="site-footer h-card">
   <data class="u-url" href="/ourshiny/"></data>
