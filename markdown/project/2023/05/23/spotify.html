@@ -159,15 +159,7 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h1"><a href="#top-songs">Top Songs</a>
-<ul>
-<li class="toc-entry toc-h2"><a href="#find-new-artists-to-listen-to">Find New Artists to Listen To</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#find-new-songs">Find new songs</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toc-entry toc-h1"><a href="#top-songs">Top Songs</a></li>
 </ul><body>
 
 	<title>Top Songs</title>
@@ -269,38 +261,6 @@ window.onload = wrap_img;
 	</script>
 
 
-
-<h2 id="find-new-artists-to-listen-to">
-<a class="anchor" href="#find-new-artists-to-listen-to" aria-hidden="true"><span class="octicon octicon-link"></span></a>Find New Artists to Listen To</h2>
-
-<h3 id="find-new-songs">
-<a class="anchor" href="#find-new-songs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Find new songs</h3>
-
-<script>
-  function findRecommendations() {
-    const url = 'https://shazam.p.rapidapi.com/search?term=2009&locale=en-US&offset=0&limit=1';
-    const options = {
-      method: 'GET',
-      headers: {
-        'X-RapidAPI-Key': '4abcb54450msh7468dfd72294e89p18fbaajsn6d4200063b39',
-        'X-RapidAPI-Host': 'shazam.p.rapidapi.com'
-      }
-    };
-
-    try {
-      const response = await fetch(url, options);
-      const result = await response.json(); // Parse the response as JSON
-      const key = result.tracks.hits[0].track.key; // Access the "key" property
-      console.log(key);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  findRecommendations()
-</script>
-
-<p><input id="genre"><button onclick="findRecommendations()">Enter</button></p>
 </body>
   </div><a class="u-url" href="/ourshiny/markdown/project/2023/05/23/spotify.html" hidden></a>
 </article>
