@@ -4,21 +4,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Spotify API | Our Shiny</title>
+<title>Find New Songs | Our Shiny</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Spotify API" />
+<meta property="og:title" content="Find New Songs" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Test" />
 <meta property="og:description" content="Test" />
-<link rel="canonical" href="https://jiya-sav.github.io/ourshiny/markdown/project/2023/05/23/spotify.html" />
-<meta property="og:url" content="https://jiya-sav.github.io/ourshiny/markdown/project/2023/05/23/spotify.html" />
+<link rel="canonical" href="https://jiya-sav.github.io/ourshiny/markdown/project/2023/05/23/recommendations.html" />
+<meta property="og:url" content="https://jiya-sav.github.io/ourshiny/markdown/project/2023/05/23/recommendations.html" />
 <meta property="og:site_name" content="Our Shiny" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-05-23T00:00:00-05:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Spotify API" />
+<meta property="twitter:title" content="Find New Songs" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-05-23T00:00:00-05:00","datePublished":"2023-05-23T00:00:00-05:00","description":"Test","headline":"Spotify API","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiya-sav.github.io/ourshiny/markdown/project/2023/05/23/spotify.html"},"url":"https://jiya-sav.github.io/ourshiny/markdown/project/2023/05/23/spotify.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-05-23T00:00:00-05:00","datePublished":"2023-05-23T00:00:00-05:00","description":"Test","headline":"Find New Songs","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiya-sav.github.io/ourshiny/markdown/project/2023/05/23/recommendations.html"},"url":"https://jiya-sav.github.io/ourshiny/markdown/project/2023/05/23/recommendations.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/ourshiny/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jiya-sav.github.io/ourshiny/feed.xml" title="Our Shiny" /><link rel="shortcut icon" type="image/x-icon" href="/ourshiny/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -99,7 +99,7 @@ window.onload = wrap_img;
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Spotify API</h1><p class="page-description">Test</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-05-23T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Find New Songs</h1><p class="page-description">Test</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-05-23T00:00:00-05:00" itemprop="datePublished">
         May 23, 2023
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -127,30 +127,26 @@ window.onload = wrap_img;
 
   <div class="post-content e-content" itemprop="articleBody">
     <ul id="toc" class="section-nav">
-<li class="toc-entry toc-h1"><a href="#top-songs">Top Songs</a>
-<ul>
-<li class="toc-entry toc-h2"><a href="#find-new-artists-to-listen-to">Find New Artists to Listen To</a>
-<ul>
-<li class="toc-entry toc-h3"><a href="#find-new-songs">Find new songs</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toc-entry toc-h2"><a href="#enter-a-song-you-like">Enter a song you like</a></li>
+<li class="toc-entry toc-h2"><a href="#recommended-songs-based-on-song-you-like">Recommended Songs Based on Song You Like</a></li>
 </ul><body>
 
-	<title>Top Songs</title>
+	<title>Recommended Songs</title>
 	<style>
 		.container {
 			max-width: 800px;
 			margin: 0 auto;
 		}
+
 		.table-container {
 			overflow-x: auto;
 		}
+
 		table {
 			width: 100%;
 			border-collapse: collapse;
 		}
+
 		th, td {
 			padding: 8px;
 			text-align: left;
@@ -159,31 +155,27 @@ window.onload = wrap_img;
 			overflow: hidden;
 			text-overflow: ellipsis;
 		}
+
 		th {
 			background-color: #f2f2f2;
 		}
 	</style>
 
+<h2>
+<a class="anchor" href="#enter-a-song-you-like" aria-hidden="true"><span class="octicon octicon-link"></span></a>Enter a song you like</h2>
+<input id="song"><button onclick="findRecommendations()">Enter</button>
 
 	<div class="container">
-		<h1>
-<a class="anchor" href="#top-songs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Top Songs</h1>
+		<h2>
+<a class="anchor" href="#recommended-songs-based-on-song-you-like" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recommended Songs Based on Song You Like</h2>
 		<div class="table-container">
 			<table>
 				<thead>
 					<tr>
 						<th>#</th>
-						<th>Name</th>
-						<th>Artists</th>
-						<th>Album Label</th>
-						<th>Current Rank</th>
-						<th>Previous Rank</th>
-						<th>Peak Rank</th>
-						<th>Peak Date</th>
-						<th>Entry Rank</th>
-						<th>Entry Date</th>
-						<th>Appearances on Chart</th>
-						<th>Consecutive Appearances</th>
+						<th>Title</th>
+						<th>Artist</th>
+						<th>URL</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -192,85 +184,74 @@ window.onload = wrap_img;
 			</table>
 		</div>
 	</div>
+
 	<script>
-		const url = 'https://spotify-scraper.p.rapidapi.com/v1/chart/tracks/top';
-		const options = {
+	async function findRecommendations() {
+        const song = document.getElementById("song").value
+        const modifiedSong = song.replace(/ /g, "%20")
+        console.log(modifiedSong)
+		const _url = `https://shazam.p.rapidapi.com/search?term=${song}&locale=en-US&offset=0&limit=1`;
+		const _options = {
 			method: 'GET',
 			headers: {
 				'X-RapidAPI-Key': '4abcb54450msh7468dfd72294e89p18fbaajsn6d4200063b39',
-				'X-RapidAPI-Host': 'spotify-scraper.p.rapidapi.com'
+				'X-RapidAPI-Host': 'shazam.p.rapidapi.com'
 			}
 		};
-	  async function fetchData() {
-			try {
-				const response = await fetch(url, options);
-				const result = await response.json();
-			  if (result.status) {
-					let tableHTML = '';
-					result.tracks.forEach((track, index) => {
-						const artists = track.artists.map(artist => artist.name).join(', ');
-						tableHTML += `
-							<tr>
-								<td>${index + 1}</td>
-								<td>${track.name}</td>
-								<td>${artists}</td>
-								<td>${track.album.label}</td>
-								<td>${track.chartData.currentRank}</td>
-								<td>${track.chartData.previousRank}</td>
-								<td>${track.chartData.peakRank}</td>
-								<td>${track.chartData.peakDate}</td>
-								<td>${track.chartData.entryRank}</td>
-								<td>${track.chartData.entryDate}</td>
-								<td>${track.chartData.appearancesOnChart}</td>
-								<td>${track.chartData.consecutiveAppearancesOnChart}</td>
-							</tr>`;
-					});
-					document.querySelector('.table-container tbody').innerHTML = tableHTML;
-				} else {
-					console.log('API request failed.');
+
+		try {
+			const response = await fetch(_url, _options);
+			const _result = await response.json(); // Parse the response as JSON
+			const key = _result.tracks.hits[0].track.key; // Access the "key" property
+			console.log(key);
+
+			const url = `https://shazam.p.rapidapi.com/songs/list-recommendations?key=${key}&locale=en-US`;
+			const options = {
+				method: 'GET',
+				headers: {
+					'X-RapidAPI-Key': '4abcb54450msh7468dfd72294e89p18fbaajsn6d4200063b39',
+					'X-RapidAPI-Host': 'shazam.p.rapidapi.com'
 				}
-			} catch (error) {
-				console.error(error);
+			};
+
+			async function fetchData() {
+				try {
+					const response = await fetch(url, options);
+					const result = await response.json();
+
+					if (result.tracks) {
+						let tableHTML = '';
+
+						result.tracks.forEach((track, index) => {
+							tableHTML += `
+								<tr>
+									<td>${index + 1}</td>
+									<td>${track.title}</td>
+									<td>${track.subtitle}</td>
+									<td><a href="${track.url}" target="_blank">Listen</a></td>
+								</tr>`;
+						});
+
+						document.querySelector('.table-container tbody').innerHTML = tableHTML;
+					} else {
+						console.log('API request failed.');
+					}
+				} catch (error) {
+					console.error(error);
+				}
 			}
-		 }
-		fetchData();
-	</script>
+
+			fetchData();
+		} catch (error) {
+			console.error(error);
+		}
+	}
+    </script>
 
 
 
-<h2 id="find-new-artists-to-listen-to">
-<a class="anchor" href="#find-new-artists-to-listen-to" aria-hidden="true"><span class="octicon octicon-link"></span></a>Find New Artists to Listen To</h2>
-
-<h3 id="find-new-songs">
-<a class="anchor" href="#find-new-songs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Find new songs</h3>
-
-<script>
-  function findRecommendations() {
-    const url = 'https://shazam.p.rapidapi.com/search?term=2009&locale=en-US&offset=0&limit=1';
-    const options = {
-      method: 'GET',
-      headers: {
-        'X-RapidAPI-Key': '4abcb54450msh7468dfd72294e89p18fbaajsn6d4200063b39',
-        'X-RapidAPI-Host': 'shazam.p.rapidapi.com'
-      }
-    };
-
-    try {
-      const response = await fetch(url, options);
-      const result = await response.json(); // Parse the response as JSON
-      const key = result.tracks.hits[0].track.key; // Access the "key" property
-      console.log(key);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
-  findRecommendations()
-</script>
-
-<p><input id="genre"><button onclick="findRecommendations()">Enter</button></p>
 </body>
-  </div><a class="u-url" href="/ourshiny/markdown/project/2023/05/23/spotify.html" hidden></a>
+  </div><a class="u-url" href="/ourshiny/markdown/project/2023/05/23/recommendations.html" hidden></a>
 </article>
 
       </div>
