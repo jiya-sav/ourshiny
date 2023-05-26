@@ -18,7 +18,7 @@
         function recommendSimilarSongs(title) {
             var features = ['bpm', 'energy', 'danceability', 'loudness', 'valence'];
 
-            fetch('http://172.25.189.122:8080/songdatabase')
+            fetch('https://playourshiny.duckdns.org/songdatabase')
                 .then(response => response.json())
                 .then(data => {
                     var songData = data;
