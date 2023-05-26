@@ -13,10 +13,14 @@
 
 // Fetch the song data from the database
 function fetchSongs() {
-  return fetch('https://playourshiny.duckdns.org/songdatabase') // Replace 'YOUR_API_ENDPOINT' with the actual URL of your song database API
+  return fetch('https://playourshiny.duckdns.org/songdatabase')
     .then(response => response.json())
-    .then(data => data.songs); // Adjust this line based on your API response structure
+    .then(data => {
+      console.log('API Response:', data); // Log the response to check its structure
+      return data.songs;
+    });
 }
+
 
 // Randomize a song
 function randomizeSong() {
