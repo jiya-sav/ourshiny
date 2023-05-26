@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Song Randomizer</title>
+  </head>
+  <body>
+    <button id="randomizeButton">Randomize Song</button>
+    <script src="script.js"></script>
+  </body>
+</html>
+
+<script>
+
+// Fetch the song data from the database
+function fetchSongs() {
+  return fetch('https://playourshiny.duckdns.org/songdatabase') // Replace 'YOUR_API_ENDPOINT' with the actual URL of your song database API
+    .then(response => response.json())
+    .then(data => data.songs); // Adjust this line based on your API response structure
+}
+
+// Randomize a song
+function randomizeSong() {
+  fetchSongs().then(songs => {
+    const randomIndex = Math.floor(Math.random() * songs.length);
+    const randomSong = songs[randomIndex];
+    console.log('Random Song:', randomSong);
+    
+    // Perform further actions with the random song, e.g., play the song or display its details on the webpage
+  });
+}
+
+// Event listener for the randomize button
+const randomizeButton = document.getElementById('randomizeButton');
+randomizeButton.addEventListener('click', randomizeSong);
+
+</script>
