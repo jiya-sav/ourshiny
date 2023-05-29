@@ -40,6 +40,8 @@
     </script>
 
 
+<!-- <div id="neon-sign"></div> -->
+
 <script>
 function wrap_img(fn) {
     if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
@@ -62,13 +64,45 @@ function wrap_img(fn) {
 window.onload = wrap_img;
 </script>
 
-<script>
+<!-- <script> 
     document.addEventListener("DOMContentLoaded", function(){
     // add link icon to anchor tags
     var elem = document.querySelectorAll(".anchor-link")
     elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
     });
-</script>
+    const neonSign = document.getElementById('neon-sign');
+    const texts = [
+    '-',
+    '---',
+    '----',
+    '-------',
+    '-------------',
+    '-----------------',
+    '---------------------',
+    '-',
+    '---',
+    '----',
+    '-------',
+    '-------------',
+    '-----------------',
+    '---------------------',
+    '-',
+    '---',
+    '----',
+    '-------',
+    '-------------',
+    '-----------------',
+    '---------------------',
+    ];
+    let index = 0;
+    
+    function animateText() {
+    neonSign.textContent = texts[index];
+    index = (index + 1) % texts.length;
+    }
+    
+    setInterval(animateText, 500);
+</script> -->
 </head>
 <body><header class="site-header">
 
@@ -123,7 +157,7 @@ window.onload = wrap_img;
   }
   100% {
     width: 100%;
-    background: #1aff00;
+    background: #1DB954;
   }
 }
 </style>
@@ -707,6 +741,47 @@ h2 {
 
 <div class="box"><div class="col-8 d-table-cell p-3">
     <h3>
+      <a class="post-link" href="/ourshiny/2023/05/28/Guide-to-making-a-new-repo.html">
+        Guide To Making A New Repo
+      </a>
+    </h3>
+    <p class="post-meta-description"></p>
+    <p class="post-meta">May 28, 2023</p>
+  </div>
+</div>
+</li><li><style>
+  p {
+    text-align: center;
+  }
+
+  h3 {
+    text-align: center;
+  }
+
+  a {
+    text-align: center;
+  }
+
+  .box {
+    /* Center the content horizontally */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    border-radius: 50px;
+    border-style: double;  
+    margin: auto;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 1s ease-in-out;
+  }
+  .box:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transform: scale(1.05);
+  }
+</style>
+
+<div class="box"><div class="col-8 d-table-cell p-3">
+    <h3>
       <a class="post-link" href="/ourshiny/2023/05/26/RandomSong.html">
         Randomsong
       </a>
@@ -750,47 +825,6 @@ h2 {
     <h3>
       <a class="post-link" href="/ourshiny/2023/05/26/Playlist-Maker.html">
         Playlist Maker
-      </a>
-    </h3>
-    <p class="post-meta-description"></p>
-    <p class="post-meta">May 26, 2023</p>
-  </div>
-</div>
-</li><li><style>
-  p {
-    text-align: center;
-  }
-
-  h3 {
-    text-align: center;
-  }
-
-  a {
-    text-align: center;
-  }
-
-  .box {
-    /* Center the content horizontally */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 400px;
-    border-radius: 50px;
-    border-style: double;  
-    margin: auto;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-    transition: box-shadow 1s ease-in-out;
-  }
-  .box:hover {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    transform: scale(1.05);
-  }
-</style>
-
-<div class="box"><div class="col-8 d-table-cell p-3">
-    <h3>
-      <a class="post-link" href="/ourshiny/2023/05/26/Guide-to-making-a-new-repo.html">
-        Guide To Making A New Repo
       </a>
     </h3>
     <p class="post-meta-description"></p>

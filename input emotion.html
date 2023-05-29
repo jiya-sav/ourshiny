@@ -38,6 +38,8 @@
     </script>
 
 
+<!-- <div id="neon-sign"></div> -->
+
 <script>
 function wrap_img(fn) {
     if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
@@ -60,13 +62,45 @@ function wrap_img(fn) {
 window.onload = wrap_img;
 </script>
 
-<script>
+<!-- <script> 
     document.addEventListener("DOMContentLoaded", function(){
     // add link icon to anchor tags
     var elem = document.querySelectorAll(".anchor-link")
     elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
     });
-</script>
+    const neonSign = document.getElementById('neon-sign');
+    const texts = [
+    '-',
+    '---',
+    '----',
+    '-------',
+    '-------------',
+    '-----------------',
+    '---------------------',
+    '-',
+    '---',
+    '----',
+    '-------',
+    '-------------',
+    '-----------------',
+    '---------------------',
+    '-',
+    '---',
+    '----',
+    '-------',
+    '-------------',
+    '-----------------',
+    '---------------------',
+    ];
+    let index = 0;
+    
+    function animateText() {
+    neonSign.textContent = texts[index];
+    index = (index + 1) % texts.length;
+    }
+    
+    setInterval(animateText, 500);
+</script> -->
 </head>
 <body><header class="site-header">
 
@@ -121,7 +155,7 @@ window.onload = wrap_img;
   }
   100% {
     width: 100%;
-    background: #1aff00;
+    background: #1DB954;
   }
 }
 </style>
@@ -140,11 +174,34 @@ window.onload = wrap_img;
 </style>
 
 <style>
-  @import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
 
 *{
-    margin: 0px;
-    padding: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+body {
+  font-family: 'Exo', sans-serif;
+  text-align: center;
+}
+
+h1 {
+  color: #fff;
+  text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px rgb(107, 255, 154),
+      0 0 82px rgb(107, 255, 154),
+      0 0 92px rgb(107, 255, 154),
+      0 0 102px rgb(107, 255, 154),
+      0 0 151px rgb(107, 255, 154);  
+  margin-bottom: 20px;
+}
+
+hr {
+  border: 1px solid #ddd;
 }
 
 button {
@@ -168,96 +225,238 @@ button:hover {
   background-color: #1ED760;
 }
 
+.button-rotate {
+  animation: rotate 1s infinite linear;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 
 input {
-  margin-bottom: 20px;
+  margin-bottom: 60px;
+  border-radius: 10px;
+  width: 300px;
+  height: 30px;
 }
 
-label {
-  margin-bottom: 20px;
+.logo-holder {
+  width: 180px;
+  height: 220px;
+  position: relative;
+  margin: 0 auto ;
+  -webkit-transform: rotate(270deg); /* Rotate by 90 degrees */
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+  transform: rotate(270deg);
 }
 
-h3 {
-  margin-bottom: 20px;
-  margin-top: 40px;
+.bar {
+  position: relative;
+  height: 8px;
+  background: #6a6a6a;
+  width:  0%;
+  top: 0px;
+  left: 18px;
+  margin-top: 8px;
+  box-shadow: 0 0 3px rgba(192,192,192,0.9);
+  animation: fill 5s infinite alternate, colors 5s infinite alternate;
 }
 
-p {
-  margin-top: 5px;
-  font-size: larger;
+.bar.fill1 {
+animation: fill-1 5s infinite alternate, colors 5s infinite alternate;
 }
 
-form {
-  margin-top: 20px;
+.bar.fill2 {
+ animation:  fill-2 5s infinite alternate, colors 5s infinite alternate;
 }
 
-h3{
-  font-size: 25px;
+
+.bar.fill3 {
+ animation:  fill-3 5s infinite alternate, colors 5s infinite alternate;
 }
 
-h5{
-  font-size: 30px;
-  margin-bottom: 20px;
-  color: #fff;
-  text-shadow:
-      0 0 7px #fff,
-      0 0 10px #fff,
-      0 0 21px #fff,
-      0 0 42px rgb(107, 255, 154),
-      0 0 82px rgb(107, 255, 154),
-      0 0 92px rgb(107, 255, 154),
-      0 0 102px rgb(107, 255, 154),
-      0 0 151px rgb(107, 255, 154);
+
+.bar.fill4 {
+ animation:  fill-4 5s infinite alternate, colors 5s infinite alternate;
 }
 
-body {
-  font-family: 'Exo', sans-serif;
-  text-align: center;
+.bar.fill5 {
+ animation:  fill-5 5s infinite alternate, colors 5s infinite alternate;
 }
 
+.bar.fill6 {
+ animation:  fill-6 5s infinite alternate, colors 5s infinite alternate;
+}
+
+.bar.fill7 {
+ animation:  fill-6 5s infinite alternate, colors 5s infinite alternate;
+}
+
+.bar.fill8 {
+ animation:  fill-6 5s infinite alternate, colors 5s infinite alternate;
+}
+
+.bar.fill9 {
+ animation:  fill-6 5s infinite alternate, colors 5s infinite alternate;
+}
+
+.bar.fill10 {
+ animation:  fill-6 5s infinite alternate, colors 5s infinite alternate;
+}
+
+.bar.fill11 {
+ animation:  fill-6 5s infinite alternate, colors 5s infinite alternate;
+}
+
+.bar.fill12 {
+ animation:  fill-6 5s infinite alternate, colors 5s infinite alternate;
+}
+
+
+
+@keyframes fill {
+0%   { width: 0; }
+33%  { width: 30px;}
+66%  { width: 10px;}
+100% { width: 105px; }
+}
+
+@keyframes fill-1 {
+0%   { width: 0; }
+33%  { width: 50px;}
+66%  { width: 20px;}
+100% { width: 130px; }
+}
+
+@keyframes fill-2 {
+0%   { width: 0; }
+33%  { width: 90px;}
+66%  { width: 70px;}
+100% { width: 136px; }
+}
+
+@keyframes fill-3 {
+0%   { width: 0; }
+33%  { width: 50px;}
+66%  { width: 24px;}
+100% { width: 109px; }
+}
+
+@keyframes fill-4 {
+0%   { width: 0; }
+33%  { width: 98px;}
+66%  { width: 34px;}
+100% { width: 99px; }
+}
+
+@keyframes fill-5 {
+0%   { width: 0; }
+33%  { width: 30px;}
+66%  { width: 10px;}
+100% { width: 148px; }
+}
+
+
+@keyframes fill-6 {
+0%   { width: 0; }
+33%  { width: 48px;}
+66%  { width: 22px;}
+100% { width: 140px; }
+}
+
+@keyframes fill-7 {
+0%   { width: 0; }
+33%  { width: 48px;}
+66%  { width: 22px;}
+100% { width: 140px; }
+}
+
+@keyframes fill-8 {
+0%   { width: 0; }
+33%  { width: 48px;}
+66%  { width: 22px;}
+100% { width: 140px; }
+}
+
+@keyframes fill-9 {
+0%   { width: 0; }
+33%  { width: 48px;}
+66%  { width: 22px;}
+100% { width: 140px; }
+}
+
+@keyframes fill-10 {
+0%   { width: 0; }
+33%  { width: 48px;}
+66%  { width: 22px;}
+100% { width: 140px; }
+}
+
+@keyframes fill-11 {
+0%   { width: 0; }
+33%  { width: 48px;}
+66%  { width: 22px;}
+100% { width: 140px; }
+}
+
+@keyframes fill-12 {
+0%   { width: 0; }
+33%  { width: 48px;}
+66%  { width: 22px;}
+100% { width: 140px; }
+}
+
+@keyframes colors {
+0% { background-color: #5a5a5a;}
+50% { background-color: #3a3;}
+100% { background-color: #6a6a6a;}
+}
 </style>
 
 <body>
-  <div>
-    <h3>Find similar songs to what you like!!! Enter a song you like. Make sure all letters are lowercase!</h3>
-    <br style="line-height: 30em;" />
-    <!-- <h5 style="font-family:brush script mt">
-      sad
-    </h5>
-    <h5 style="font-family:brush script mt">
-      Joy
-    </h5>
-    <h5 style="font-family:brush script mt">
-      Rage
-    </h5>
-    <h5 style="font-family:brush script mt">
-      Indian
-    </h5> -->
-    <form onsubmit="return false">
-      <!-- On Enter the Input box was getting cleared. So added onsubmit=return false-->
-        <label for="emotion" style="font-size:20px">Your Song:</label>
-        <br />
-        <input type="text" id="emotion" name="emotion" />
-        <br />
-        <button id="runAPI" onclick="getSongs()">Get Songs</button>
-        <br />
-
-        <!-- <input type="submit" value="generate songs"> -->
-        <p>Song For You:</p>
-        <br />
-        <p id="song"></p>
-      </form>
-    <br />
-    <button id="link">Vote for Songs Here!</button>
-    <!-- New input option for random song -->
-    <h3>Can't think of a song? We'll help you out!</h3>
-    <button id="runAPI">Random Song</button>
-
-  </div>
+  <h1>Song Recommendation</h1>
+  <input type="text" id="songInput" placeholder="Enter a song title" />
+      <div class="input-group-append">
+        <button type="button" onclick="recommendSongs()">Recommend</button>
+      </div>
+    <div id="recommendations" class="mt-4"></div>
+    <div class="logo-holder">
+      <div class="bar"></div>
+      <div class="bar fill1"></div>
+      <div class="bar fill2"></div>
+      <div class="bar fill3"></div>
+      <div class="bar fill4"></div>
+      <div class="bar fill1"></div>
+      <div class="bar fill5"></div>
+      <div class="bar fill6"></div>
+      <div class="bar fill7"></div>
+      <div class="bar fill8"></div>
+      <div class="bar fill9"></div>
+      <div class="bar fill10"></div>
+      <div class="bar fill11"></div>
+      <div class="bar fill12"></div>
+      <div class="bar"></div>
+    </div>    
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </body>
 
 <script>
-document.getElementById("link").addEventListener("click", function() {
+  $(document).ready(function() {
+    $("button").click(function() {
+      $(this).addClass("button-rotate");
+      $(this).text(""); // Clear the text inside the button
+      $(this).css("width", "0.5%"); // Decrease the width of the button by 50%
+    });
+  });
+
+/* document.getElementById("link").addEventListener("click", function() {
   window.location.href = "https://jiya-sav.github.io/SSJN/data/songs";
 });  
 
@@ -344,8 +543,79 @@ function GetRandom(arr)
   var rI = Math.floor(Math.random() * arr.length); 
   var rE  = arr[rI];
   return rE;
+} */
+
+function recommendSongs() {
+  var userInput = document.getElementById("songInput").value;
+  recommendSimilarSongs(userInput);
 }
-   
+
+function recommendSimilarSongs(title) {
+  var features = ['bpm', 'energy', 'danceability', 'loudness', 'valence'];
+
+  fetch('http://172.25.189.122:8080/songdatabase')
+      .then(response => response.json())
+      .then(data => {
+          var songData = data;
+
+          var inputIndex;
+          var inputSong = songData.find(function (song, index) {
+              if (song.title.toLowerCase() === title.toLowerCase()) {
+                  inputIndex = index;
+                  return true;
+              }
+              return false;
+          });
+
+          if (!inputSong) {
+              console.log("The title you entered is not in our database. Try another, or fix spelling");
+              return;
+          }
+
+          var similarities = songData.map(function (song, index) {
+              if (index === inputIndex) return Infinity; // Exclude the inputted song
+              return calculateSimilarity(inputSong, song);
+          });
+
+          var topIndices = getTopIndices(similarities, 5);
+
+          var recommendationsDiv = document.getElementById("recommendations");
+          recommendationsDiv.innerHTML = "<p>Based on the song you like: " + title + ", we recommend these five songs for your new playlist:</p><hr>";
+          for (var i = 1; i < topIndices.length + 1; i++) {
+              var index = topIndices[i - 1];
+              var recommendedSong = songData[index];
+              var songTitle = recommendedSong.title;
+              var songArtist = recommendedSong.artist;
+              var recommendation = document.createElement("p");
+              recommendation.textContent = i + ". " + songTitle + " by " + songArtist;
+              recommendationsDiv.appendChild(recommendation);
+          }
+      })
+      .catch(error => {
+          console.error("Error fetching data:", error);
+      });
+}
+
+function calculateSimilarity(song1, song2) {
+  var features = ['bpm', 'energy', 'danceability', 'loudness', 'valence'];
+  var differences = features.map(function (feature) {
+      return Math.abs(song1[feature] - song2[feature]);
+  });
+  return differences.reduce(function (sum, difference) {
+      return sum + difference;
+  }, 0);
+}
+
+function getTopIndices(arr, count) {
+  var indices = arr.map(function (value, index) {
+      return index;
+  });
+  indices.sort(function (a, b) {
+      return arr[a] - arr[b];
+  });
+  return indices.slice(0, count);
+}
+
 </script>
 
 

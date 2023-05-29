@@ -38,6 +38,8 @@
     </script>
 
 
+<!-- <div id="neon-sign"></div> -->
+
 <script>
 function wrap_img(fn) {
     if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
@@ -60,13 +62,45 @@ function wrap_img(fn) {
 window.onload = wrap_img;
 </script>
 
-<script>
+<!-- <script> 
     document.addEventListener("DOMContentLoaded", function(){
     // add link icon to anchor tags
     var elem = document.querySelectorAll(".anchor-link")
     elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
     });
-</script>
+    const neonSign = document.getElementById('neon-sign');
+    const texts = [
+    '-',
+    '---',
+    '----',
+    '-------',
+    '-------------',
+    '-----------------',
+    '---------------------',
+    '-',
+    '---',
+    '----',
+    '-------',
+    '-------------',
+    '-----------------',
+    '---------------------',
+    '-',
+    '---',
+    '----',
+    '-------',
+    '-------------',
+    '-----------------',
+    '---------------------',
+    ];
+    let index = 0;
+    
+    function animateText() {
+    neonSign.textContent = texts[index];
+    index = (index + 1) % texts.length;
+    }
+    
+    setInterval(animateText, 500);
+</script> -->
 </head>
 <body><header class="site-header">
 
@@ -125,7 +159,7 @@ footer {
   }
   100% {
     width: 100%;
-    background: #1aff00;
+    background: #1DB954;
   }
 }
 </style>
@@ -150,41 +184,6 @@ footer {
 <audio id="myAudio" autoplay="" loop="">
   <source src="/ourshiny//audios/ebyt.mp3" type="audio/mpeg" />
 </audio>
-
-<div id="timer"></div>
-
-<script>
-  function initTimer(id, duration, callback) {
-    var t = document.getElementById(id);
-    t.className = 'timer';
-    var tInner = document.createElement('div');
-    tInner.className = 'inner';
-    tInner.style.animationDuration = duration;
-    if (typeof(callback) === 'function')
-      tInner.addEventListener('animationend', callback);
-      t.appendChild(tInner);
-
-      // Check if audio is playing
-      var audio = document.getElementById('myAudio');
-      audio.onplay = function() {
-        t.style.display = 'block';
-        // Start animation
-        tInner.style.animationPlayState = 'running';
-      };
-
-      audio.onpause = function() {
-        t.style.display = 'none';
-        // Pause animation
-        tInner.style.animationPlayState = 'paused';
-      };
-  }
-
-  addEventListener('load', () => {
-    initTimer('timer', '228s', () => {
-      // Callback function
-    });
-  });
-</script>
 
 
   </div>
