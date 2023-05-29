@@ -37,7 +37,7 @@ footer {
   }
   100% {
     width: 100%;
-    background: #1aff00;
+    background: #1DB954;
   }
 }
 </style>
@@ -57,37 +57,3 @@ footer {
   <source src="{{site.baseurl}}//audios/ebyt.mp3" type="audio/mpeg">
 </audio>
 
-<div id='timer'></div>
-
-<script>
-  function initTimer(id, duration, callback) {
-    var t = document.getElementById(id);
-    t.className = 'timer';
-    var tInner = document.createElement('div');
-    tInner.className = 'inner';
-    tInner.style.animationDuration = duration;
-    if (typeof(callback) === 'function')
-      tInner.addEventListener('animationend', callback);
-      t.appendChild(tInner);
-
-      // Check if audio is playing
-      var audio = document.getElementById('myAudio');
-      audio.onplay = function() {
-        t.style.display = 'block';
-        // Start animation
-        tInner.style.animationPlayState = 'running';
-      };
-
-      audio.onpause = function() {
-        t.style.display = 'none';
-        // Pause animation
-        tInner.style.animationPlayState = 'paused';
-      };
-  }
-
-  addEventListener('load', () => {
-    initTimer('timer', '228s', () => {
-      // Callback function
-    });
-  });
-</script>  
