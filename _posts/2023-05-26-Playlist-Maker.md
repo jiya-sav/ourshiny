@@ -104,8 +104,6 @@ title: Find New Songs
             return indices.slice(0, count);
         }
 
-
-
 function addSong() {
         var title = document.getElementById("addTitleInput").value;
         var artist = document.getElementById("addArtistInput").value;
@@ -141,7 +139,6 @@ function addSong() {
             console.error("Error adding song:", error);
         });
     }
-
 
   
     </script>
