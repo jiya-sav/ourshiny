@@ -6,7 +6,6 @@ categories: [markdown, project]
 title: Find New Songs
 ---
 
-<html>
 <head>
     <title>Song Recommendation</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -143,4 +142,3 @@ function addSong() {
   
     </script>
 </body>
-</html>
