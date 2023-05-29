@@ -225,6 +225,10 @@ button:hover {
   background-color: #1ED760;
 }
 
+.button-rotate {
+  animation: rotate 1s infinite linear;
+}
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -251,7 +255,6 @@ input {
   -ms-transform: rotate(270deg);
   -o-transform: rotate(270deg);
   transform: rotate(270deg);
-  margin-bottom: 40px;
 }
 
 .bar {
@@ -446,6 +449,14 @@ animation: fill-1 5s infinite alternate, colors 5s infinite alternate;
 </body>
 
 <script>
+  $(document).ready(function() {
+    $("button").click(function() {
+      $(this).addClass("button-rotate");
+      $(this).text(""); // Clear the text inside the button
+      $(this).css("width", "0.5%"); // Decrease the width of the button by 50%
+    });
+  });
+
 /* document.getElementById("link").addEventListener("click", function() {
   window.location.href = "https://jiya-sav.github.io/SSJN/data/songs";
 });  
@@ -543,7 +554,7 @@ function recommendSongs() {
 function recommendSimilarSongs(title) {
   var features = ['bpm', 'energy', 'danceability', 'loudness', 'valence'];
 
-  fetch('http://172.25.189.122:8080/songdatabase')
+  fetch('https://playourshiny.duckdns.org/songdatabase')
       .then(response => response.json())
       .then(data => {
           var songData = data;
