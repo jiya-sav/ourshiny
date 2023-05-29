@@ -60,7 +60,7 @@ title: Find New Songs
 		</div>
 	</div>
 
-	<script>
+<script>
 	async function findRecommendations() {
         const song = document.getElementById("song").value
         const modifiedSong = song.replace(/ /g, "%20")
@@ -121,7 +121,7 @@ title: Find New Songs
 			console.error(error);
 		}
 	}
-    </script>
+</script>
 
 </body>
 </html>
