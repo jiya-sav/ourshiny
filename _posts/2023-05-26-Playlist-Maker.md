@@ -9,6 +9,21 @@
     <button onclick="recommendSongs()">Recommend</button>
     <div id="recommendations"></div>
 
+  
+<h1>Song Recommendation</h1>
+<input type="text" id="songInput" placeholder="Enter a song title">
+<button onclick="recommendSongs()">Recommend</button>
+<div id="recommendations"></div>
+
+<hr>
+
+<h2>Add a Song to the Database</h2>
+<input type="text" id="addTitleInput" placeholder="Song Title">
+<input type="text" id="addArtistInput" placeholder="Artist">
+<!-- Add more input fields for other attributes if needed -->
+<button onclick="addSong()">Add Song</button>
+
+
 <script>
         function recommendSongs() {
             var userInput = document.getElementById("songInput").value;
@@ -80,6 +95,47 @@
             });
             return indices.slice(0, count);
         }
+
+
+
+function addSong() {
+        var title = document.getElementById("addTitleInput").value;
+        var artist = document.getElementById("addArtistInput").value;
+        // Get values for other attributes if needed
+
+        var requestBody = {
+            title: title,
+            artist: artist,
+            // Add other attributes as key-value pairs in the requestBody object
+        };
+
+        fetch('https://playourshiny.duckdns.org/create', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestBody)
+        })
+        .then(response => {
+            if (response.ok) {
+              alert("success")
+                console.log("Song added successfully!");
+                // Clear the input fields after successful addition
+                document.getElementById("addTitleInput").value = "";
+                document.getElementById("addArtistInput").value = "";
+                // Clear other input fields if needed
+            } else {
+              alert(response.status)
+                console.error("Failed to add song. Status:", response.status);
+            }
+        })
+        .catch(error => {
+            console.error("Error adding song:", error);
+        });
+    }
+
+
+  
     </script>
 </body>
 </html>
