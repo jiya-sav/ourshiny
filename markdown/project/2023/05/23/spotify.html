@@ -4,21 +4,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Spotify API | Our Shiny</title>
+<title>Weekly Top Charts | Our Shiny</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Spotify API" />
+<meta property="og:title" content="Weekly Top Charts" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Test" />
-<meta property="og:description" content="Test" />
+<meta name="description" content="The hottest songs of the week" />
+<meta property="og:description" content="The hottest songs of the week" />
 <link rel="canonical" href="https://jiya-sav.github.io/ourshiny/markdown/project/2023/05/23/spotify.html" />
 <meta property="og:url" content="https://jiya-sav.github.io/ourshiny/markdown/project/2023/05/23/spotify.html" />
 <meta property="og:site_name" content="Our Shiny" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-05-23T00:00:00-05:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Spotify API" />
+<meta property="twitter:title" content="Weekly Top Charts" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-05-23T00:00:00-05:00","datePublished":"2023-05-23T00:00:00-05:00","description":"Test","headline":"Spotify API","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiya-sav.github.io/ourshiny/markdown/project/2023/05/23/spotify.html"},"url":"https://jiya-sav.github.io/ourshiny/markdown/project/2023/05/23/spotify.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-05-23T00:00:00-05:00","datePublished":"2023-05-23T00:00:00-05:00","description":"The hottest songs of the week","headline":"Weekly Top Charts","mainEntityOfPage":{"@type":"WebPage","@id":"https://jiya-sav.github.io/ourshiny/markdown/project/2023/05/23/spotify.html"},"url":"https://jiya-sav.github.io/ourshiny/markdown/project/2023/05/23/spotify.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/ourshiny/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://jiya-sav.github.io/ourshiny/feed.xml" title="Our Shiny" /><link rel="shortcut icon" type="image/x-icon" href="/ourshiny/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -164,7 +164,7 @@ window.onload = wrap_img;
 <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Spotify API</h1><p class="page-description">Test</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-05-23T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Weekly Top Charts</h1><p class="page-description">The hottest songs of the week</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-05-23T00:00:00-05:00" itemprop="datePublished">
         May 23, 2023
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -239,17 +239,28 @@ window.onload = wrap_img;
 				width: 100%;
 			}
 		}
+		.dropdown {
+			margin-bottom: 10px;
+		}
 	</style>
 
 
 	<div class="container">
 		<h1>
 <a class="anchor" href="#top-songs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Top Songs</h1>
+		<div class="dropdown">
+			<label for="songCount">Select Number of Songs:</label>
+			<select id="songCount" onchange="fetchData()">
+				<option value="10">10</option>
+				<option value="20">20</option>
+				<option value="50">50</option>
+			</select>
+		</div>
 		<div class="table-container">
 			<div class="loading-bar">
 				<div class="loading-progress"></div>
 			</div>
-			<table>
+			<table id="songTable">
 				<thead>
 					<tr>
 						<th>#</th>
@@ -285,7 +296,9 @@ window.onload = wrap_img;
 			try {
 				const loadingBar = document.querySelector('.loading-bar');
 				const loadingProgress = document.querySelector('.loading-progress');
-				const response = await fetch(url, options);
+				const songCountSelect = document.querySelector('#songCount');
+				const selectedSongCount = songCountSelect.value;
+				const response = await fetch(`${url}?limit=${selectedSongCount}`, options);
 				const result = await response.json();
 				if (result.status) {
 					let tableHTML = '';
