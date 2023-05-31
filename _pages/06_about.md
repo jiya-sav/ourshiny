@@ -4,11 +4,9 @@ title: About
 permalink: /about/
 ---
 
-This site is built with [fastpages](https://github.com/fastai/fastpages)
-
 <html>
 <head>
-    <title>About Us</title>
+    <title>About Our Team</title>
     <style>
         .card-container {
             width: 300px;
@@ -39,7 +37,7 @@ This site is built with [fastpages](https://github.com/fastai/fastpages)
         }
 
         .card-front {
-            background-color: #f0f0f0;
+            background-color: #000000;
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -51,7 +49,7 @@ This site is built with [fastpages](https://github.com/fastai/fastpages)
         }
 
         .card-back {
-            background-color: #eaeaea;
+            background-color: #000000;
             border-radius: 10px;
             padding: 20px;
             transform: rotateY(180deg);
