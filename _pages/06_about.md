@@ -18,7 +18,7 @@ permalink: /about/
 
         .card {
             position: relative;
-            width: 100%;
+            width: 90%;
             height: 100%;
             transform-style: preserve-3d;
             transition: transform 1s;
