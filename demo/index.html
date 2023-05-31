@@ -453,17 +453,24 @@ window.onload = wrap_img;
         }
 
         /* CSS styles for the table */
-       #flaskTable {
-        width: 50%;
-        max-width: 600px; /* Adjust the maximum width as per your needs */
-        margin: 0 auto;
-    }
-
-    #flaskTable td,
-    #flaskTable th {
-        padding: 5px; /* Adjust the padding as per your needs */
-        font-size: 14px; /* Adjust the font size as per your needs */
-    }
+        .table-container {
+            max-width: 100%;
+            overflow-x: auto;
+        }
+    
+        /* CSS styles for the table */
+        #flaskTable {
+            width: 100%;
+            table-layout: fixed;
+        }
+    
+        /* CSS styles for the table cells and headers */
+        #flaskTable td,
+        #flaskTable th {
+            padding: 5px; /* Adjust the padding as per your needs */
+            font-size: 14px; /* Adjust the font size as per your needs */
+        }
+        
     </style>
     <!-- load jQuery and DataTables style and scripts -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
@@ -635,7 +642,7 @@ window.onload = wrap_img;
                         row.loudness + '</td><td>' +
                         row.liveness + '</td><td>' +
                         row.valence + '</td><td>' +
-                        row.lencth + '</td><td>' +
+                        row.duration + '</td><td>' +
                         row.acousticness + '</td><td>' +
                         row.speechiness + '</td><td>' +
                         row.popularity + '</td></tr>');
