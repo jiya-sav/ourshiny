@@ -1,462 +1,518 @@
----
-layout: fe
-permalink: /inputsong
-title: Front End Demo
-search_exclude: true
----
+<!DOCTYPE html>
 <html>
-<style>
+<head>
+    <title>Song Recommendation</title>
+    <style>
+        header {
+            background-color: #181818;
+        }
 
-  header {
-      background-color: #181818;
-  }  
-  
-</style>
+        body {
+            font-family: 'Exo', sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
 
+        h1 {
+            color: #fff;
+            text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff, 0 0 42px rgb(107, 255, 154),
+                0 0 82px rgb(107, 255, 154), 0 0 92px rgb(107, 255, 154), 0 0 102px rgb(107, 255, 154),
+                0 0 151px rgb(107, 255, 154);
+            margin-bottom: 20px;
+        }
 
-<style>
-@import url('https://fonts.googleapis.com/css?family=Exo:400,700');
+        hr {
+            border: 1px solid #ddd;
+        }
 
-*{
-  margin: 0px;
-  padding: 0px;
-}
+        button {
+            margin-bottom: 40px;
+            background-color: #1DB954;
+            color: #FFFFFF;
+            border-radius: 30px;
+            border: none;
+            font-size: 16px;
+            font-weight: bold;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
 
-body {
-  font-family: 'Exo', sans-serif;
-  text-align: center;
-}
+        button:hover {
+            background-color: #1ED760;
+        }
 
-h1 {
-  color: #fff;
-  text-shadow:
-      0 0 7px #fff,
-      0 0 10px #fff,
-      0 0 21px #fff,
-      0 0 42px rgb(107, 255, 154),
-      0 0 82px rgb(107, 255, 154),
-      0 0 92px rgb(107, 255, 154),
-      0 0 102px rgb(107, 255, 154),
-      0 0 151px rgb(107, 255, 154);  
-  margin-bottom: 20px;
-}
+        input {
+            margin-bottom: 60px;
+            border-radius: 10px;
+            width: 300px;
+            height: 30px;
+        }
 
-hr {
-  border: 1px solid #ddd;
-}
+        .logo-holder {
+            width: 180px;
+            height: 220px;
+            position: relative;
+            margin: 0 auto;
+            -webkit-transform: rotate(270deg);
+            -moz-transform: rotate(270deg);
+            -ms-transform: rotate(270deg);
+            -o-transform: rotate(270deg);
+            transform: rotate(270deg);
+        }
 
-button {
-  margin-bottom: 40px;
-  background-color: #1DB954;
-  color: #FFFFFF;
-  border-radius: 30px;
-  border: none;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  margin: 4px 2px;
-  cursor: pointer;
-  transition: background-color 0.3s ease-in-out;
-}
+        .bar {
+            position: relative;
+            height: 8px;
+            background: #6a6a6a;
+            width: 0%;
+            top: 0px;
+            left: 18px;
+            margin-top: 8px;
+            box-shadow: 0 0 3px rgba(192, 192, 192, 0.9);
+            animation: fill 5s infinite alternate, colors 5s infinite alternate;
+        }
 
-button:hover {
-  background-color: #1ED760;
-}
+        .bar.fill1 {
+            animation: fill-1 5s infinite alternate, colors 5s infinite alternate;
+        }
 
-.button-rotate {
-  animation: rotate 1s infinite linear;
-}
+        .bar.fill2 {
+            animation: fill-2 5s infinite alternate, colors 5s infinite alternate;
+        }
 
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+        .bar.fill3 {
+            animation: fill-3 5s infinite alternate, colors 5s infinite alternate;
+        }
 
-input {
-  margin-bottom: 60px;
-  border-radius: 10px;
-  width: 300px;
-  height: 30px;
-}
+        .bar.fill4 {
+            animation: fill-4 5s infinite alternate, colors 5s infinite alternate;
+        }
 
-.logo-holder {
-  width: 180px;
-  height: 220px;
-  position: relative;
-  margin: 0 auto ;
-  -webkit-transform: rotate(270deg); /* Rotate by 90 degrees */
-  -moz-transform: rotate(270deg);
-  -ms-transform: rotate(270deg);
-  -o-transform: rotate(270deg);
-  transform: rotate(270deg);
-}
+        .bar.fill5 {
+            animation: fill-5 5s infinite alternate, colors 5s infinite alternate;
+        }
 
-.bar {
-  position: relative;
-  height: 8px;
-  background: #6a6a6a;
-  width:  0%;
-  top: 0px;
-  left: 18px;
-  margin-top: 8px;
-  box-shadow: 0 0 3px rgba(192,192,192,0.9);
-  animation: fill 5s infinite alternate, colors 5s infinite alternate;
-}
+        .bar.fill6 {
+            animation: fill-6 5s infinite alternate, colors 5s infinite alternate;
+        }
 
-.bar.fill1 {
-animation: fill-1 5s infinite alternate, colors 5s infinite alternate;
-}
+        .bar.fill7 {
+            animation: fill-7 5s infinite alternate, colors 5s infinite alternate;
+        }
 
-.bar.fill2 {
- animation:  fill-2 5s infinite alternate, colors 5s infinite alternate;
-}
+        .bar.fill8 {
+            animation: fill-8 5s infinite alternate, colors 5s infinite alternate;
+        }
 
+        .bar.fill9 {
+            animation: fill-9 5s infinite alternate, colors 5s infinite alternate;
+        }
 
-.bar.fill3 {
- animation:  fill-3 5s infinite alternate, colors 5s infinite alternate;
-}
+        .bar.fill10 {
+            animation: fill-10 5s infinite alternate, colors 5s infinite alternate;
+        }
 
+        .bar.fill11 {
+            animation: fill-11 5s infinite alternate, colors 5s infinite alternate;
+        }
 
-.bar.fill4 {
- animation:  fill-4 5s infinite alternate, colors 5s infinite alternate;
-}
+        .bar.fill12 {
+            animation: fill-12 5s infinite alternate, colors 5s infinite alternate;
+        }
 
-.bar.fill5 {
- animation:  fill-5 5s infinite alternate, colors 5s infinite alternate;
-}
+        @keyframes fill {
+            0% {
+                width: 0;
+            }
+            33% {
+                width: 30px;
+            }
+            66% {
+                width: 10px;
+            }
+            100% {
+                width: 105px;
+            }
+        }
 
-.bar.fill6 {
- animation:  fill-6 5s infinite alternate, colors 5s infinite alternate;
-}
+        @keyframes fill-1 {
+            0% {
+                width: 0;
+            }
+            33% {
+                width: 50px;
+            }
+            66% {
+                width: 20px;
+            }
+            100% {
+                width: 130px;
+            }
+        }
 
-.bar.fill7 {
- animation:  fill-6 5s infinite alternate, colors 5s infinite alternate;
-}
+        @keyframes fill-2 {
+            0% {
+                width: 0;
+            }
+            33% {
+                width: 90px;
+            }
+            66% {
+                width: 70px;
+            }
+            100% {
+                width: 136px;
+            }
+        }
 
-.bar.fill8 {
- animation:  fill-6 5s infinite alternate, colors 5s infinite alternate;
-}
+        @keyframes fill-3 {
+            0% {
+                width: 0;
+            }
+            33% {
+                width: 50px;
+            }
+            66% {
+                width: 24px;
+            }
+            100% {
+                width: 109px;
+            }
+        }
 
-.bar.fill9 {
- animation:  fill-6 5s infinite alternate, colors 5s infinite alternate;
-}
+        @keyframes fill-4 {
+            0% {
+                width: 0;
+            }
+            33% {
+                width: 98px;
+            }
+            66% {
+                width: 34px;
+            }
+            100% {
+                width: 99px;
+            }
+        }
 
-.bar.fill10 {
- animation:  fill-6 5s infinite alternate, colors 5s infinite alternate;
-}
+        @keyframes fill-5 {
+            0% {
+                width: 0;
+            }
+            33% {
+                width: 30px;
+            }
+            66% {
+                width: 10px;
+            }
+            100% {
+                width: 148px;
+            }
+        }
 
-.bar.fill11 {
- animation:  fill-6 5s infinite alternate, colors 5s infinite alternate;
-}
+        @keyframes fill-6 {
+            0% {
+                width: 0;
+            }
+            33% {
+                width: 48px;
+            }
+            66% {
+                width: 22px;
+            }
+            100% {
+                width: 140px;
+            }
+        }
 
-.bar.fill12 {
- animation:  fill-6 5s infinite alternate, colors 5s infinite alternate;
-}
+        @keyframes fill-7 {
+            0% {
+                width: 0;
+            }
+            33% {
+                width: 48px;
+            }
+            66% {
+                width: 22px;
+            }
+            100% {
+                width: 140px;
+            }
+        }
 
+        @keyframes fill-8 {
+            0% {
+                width: 0;
+            }
+            33% {
+                width: 48px;
+            }
+            66% {
+                width: 22px;
+            }
+            100% {
+                width: 140px;
+            }
+        }
 
+        @keyframes fill-9 {
+            0% {
+                width: 0;
+            }
+            33% {
+                width: 48px;
+            }
+            66% {
+                width: 22px;
+            }
+            100% {
+                width: 140px;
+            }
+        }
 
-@keyframes fill {
-0%   { width: 0; }
-33%  { width: 30px;}
-66%  { width: 10px;}
-100% { width: 105px; }
-}
+        @keyframes fill-10 {
+            0% {
+                width: 0;
+            }
+            33% {
+                width: 48px;
+            }
+            66% {
+                width: 22px;
+            }
+            100% {
+                width: 140px;
+            }
+        }
 
-@keyframes fill-1 {
-0%   { width: 0; }
-33%  { width: 50px;}
-66%  { width: 20px;}
-100% { width: 130px; }
-}
+        @keyframes fill-11 {
+            0% {
+                width: 0;
+            }
+            33% {
+                width: 48px;
+            }
+            66% {
+                width: 22px;
+            }
+            100% {
+                width: 140px;
+            }
+        }
 
-@keyframes fill-2 {
-0%   { width: 0; }
-33%  { width: 90px;}
-66%  { width: 70px;}
-100% { width: 136px; }
-}
+        @keyframes fill-12 {
+            0% {
+                width: 0;
+            }
+            33% {
+                width: 48px;
+            }
+            66% {
+                width: 22px;
+            }
+            100% {
+                width: 140px;
+            }
+        }
 
-@keyframes fill-3 {
-0%   { width: 0; }
-33%  { width: 50px;}
-66%  { width: 24px;}
-100% { width: 109px; }
-}
-
-@keyframes fill-4 {
-0%   { width: 0; }
-33%  { width: 98px;}
-66%  { width: 34px;}
-100% { width: 99px; }
-}
-
-@keyframes fill-5 {
-0%   { width: 0; }
-33%  { width: 30px;}
-66%  { width: 10px;}
-100% { width: 148px; }
-}
-
-
-@keyframes fill-6 {
-0%   { width: 0; }
-33%  { width: 48px;}
-66%  { width: 22px;}
-100% { width: 140px; }
-}
-
-@keyframes fill-7 {
-0%   { width: 0; }
-33%  { width: 48px;}
-66%  { width: 22px;}
-100% { width: 140px; }
-}
-
-@keyframes fill-8 {
-0%   { width: 0; }
-33%  { width: 48px;}
-66%  { width: 22px;}
-100% { width: 140px; }
-}
-
-@keyframes fill-9 {
-0%   { width: 0; }
-33%  { width: 48px;}
-66%  { width: 22px;}
-100% { width: 140px; }
-}
-
-@keyframes fill-10 {
-0%   { width: 0; }
-33%  { width: 48px;}
-66%  { width: 22px;}
-100% { width: 140px; }
-}
-
-@keyframes fill-11 {
-0%   { width: 0; }
-33%  { width: 48px;}
-66%  { width: 22px;}
-100% { width: 140px; }
-}
-
-@keyframes fill-12 {
-0%   { width: 0; }
-33%  { width: 48px;}
-66%  { width: 22px;}
-100% { width: 140px; }
-}
-
-@keyframes colors {
-0% { background-color: #5a5a5a;}
-50% { background-color: #3a3;}
-100% { background-color: #6a6a6a;}
-}
-</style>
-
+        @keyframes colors {
+            0% {
+                background-color: #5a5a5a;
+            }
+            50% {
+                background-color: #3a3;
+            }
+            100% {
+                background-color: #6a6a6a;
+            }
+        }
+    </style>
+    <!-- load jQuery and DataTables style and scripts -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
+    <script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
+</head>
 <body>
-  <h1>Song Recommendation</h1>
-  <input type="text" id="songInput" placeholder="Enter a song title">
-      <div class="input-group-append">
+    <header>
+        <h1>Song Recommendation</h1>
+    </header>
+    <input type="text" id="songInput" placeholder="Enter a song title">
+    <div class="input-group-append">
         <button type="button" onclick="recommendSongs()">Recommend</button>
-      </div>
+    </div>
+    <button onclick="getRandomSong()">Get Random Song</button>
     <div id="recommendations" class="mt-4"></div>
+    <table id="flaskTable" class="table" style="width:100%">
+        <thead id="flaskHead">
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Artist</th>
+                <th>Top Genre</th>
+                <th>Year</th>
+                <th>BPM</th>
+                <th>Energy</th>
+                <th>Danceability</th>
+                <th>Loudness</th>
+                <th>Liveness</th>
+                <th>Valence</th>
+                <th>Length</th>
+                <th>Acousticness</th>
+                <th>Speechiness</th>
+                <th>Popularity</th>
+            </tr>
+        </thead>
+        <tbody id="flaskBody"></tbody>
+    </table>
     <div class="logo-holder">
-      <div class="bar"></div>
-      <div class="bar fill1"></div>
-      <div class="bar fill2"></div>
-      <div class="bar fill3"></div>
-      <div class="bar fill4"></div>
-      <div class="bar fill1"></div>
-      <div class="bar fill5"></div>
-      <div class="bar fill6"></div>
-      <div class="bar fill7"></div>
-      <div class="bar fill8"></div>
-      <div class="bar fill9"></div>
-      <div class="bar fill10"></div>
-      <div class="bar fill11"></div>
-      <div class="bar fill12"></div>
-      <div class="bar"></div>
-    </div>    
+        <div class="bar"></div>
+        <div class="bar fill1"></div>
+        <div class="bar fill2"></div>
+        <div class="bar fill3"></div>
+        <div class="bar fill4"></div>
+        <div class="bar fill1"></div>
+        <div class="bar fill5"></div>
+        <div class="bar fill6"></div>
+        <div class="bar fill7"></div>
+        <div class="bar fill8"></div>
+        <div class="bar fill9"></div>
+        <div class="bar fill10"></div>
+        <div class="bar fill11"></div>
+        <div class="bar fill12"></div>
+        <div class="bar"></div>
+    </div>
     <a href="https://jiya-sav.github.io/ourshiny/markdown/project/2023/05/23/spotify.html">Click here to see the top songs!</a>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        function getRandomSong() {
+           fetch('https://playourshiny.duckdns.org/songdatabase')
+                .then(response => response.json())
+                .then(data => {
+                    var songData = data;
+                    var randomIndex = Math.floor(Math.random() * songData.length);
+                    var randomSong = songData[randomIndex];
+                    var recommendationsDiv = document.getElementById("recommendations");
+                    recommendationsDiv.innerHTML = "<p>Your random song is:</p><hr>";
+                    var recommendation = document.createElement("p");
+                    recommendation.textContent = randomSong.title + " by " + randomSong.artist;
+                    recommendationsDiv.appendChild(recommendation);
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                });
+        }
+
+        function recommendSongs() {
+            var userInput = document.getElementById("songInput").value;
+            recommendSimilarSongs(userInput);
+        }
+
+        function recommendSimilarSongs(title) {
+            var features = ['bpm', 'energy', 'danceability', 'loudness', 'valence'];
+
+            fetch('https://playourshiny.duckdns.org/songdatabase')
+                .then(response => response.json())
+                .then(data => {
+                    var songData = data;
+
+                    var inputIndex;
+                    var inputSong = songData.find(function (song, index) {
+                        if (song.title.toLowerCase() === title.toLowerCase()) {
+                            inputIndex = index;
+                            return true;
+                        }
+                        return false;
+                    });
+
+                    if (!inputSong) {
+                        var recommendationsDiv = document.getElementById("recommendations");
+                        recommendationsDiv.innerHTML = "<p>Unfortunately, we don't have that song in our database.</p>";
+                        return;
+                    }
+
+                    var similarities = songData.map(function (song, index) {
+                        if (index === inputIndex) return Infinity; // Exclude the inputted song
+                        return calculateSimilarity(inputSong, song);
+                    });
+
+                    var topIndices = getTopIndices(similarities, 5);
+
+                    var recommendationsDiv = document.getElementById("recommendations");
+                    recommendationsDiv.innerHTML = "<p>Based on the song you like: " + title + ", we recommend these five songs for your new playlist:</p><hr>";
+                    for (var i = 1; i < topIndices.length + 1; i++) {
+                        var index = topIndices[i - 1];
+                        var recommendedSong = songData[index];
+                        var songTitle = recommendedSong.title;
+                        var songArtist = recommendedSong.artist;
+                        var recommendation = document.createElement("p");
+                        recommendation.textContent = i + ". " + songTitle + " by " + songArtist;
+                        recommendationsDiv.appendChild(recommendation);
+                    }
+                })
+                .catch(error => {
+                    console.error("Error fetching data:", error);
+                });
+        }
+
+        function calculateSimilarity(song1, song2) {
+            var features = ['bpm', 'energy', 'danceability', 'loudness', 'valence'];
+            var differences = features.map(function (feature) {
+                return Math.abs(song1[feature] - song2[feature]);
+            });
+            return differences.reduce(function (sum, difference) {
+                return sum + difference;
+            }, 0);
+        }
+
+        function getTopIndices(arr, count) {
+            var indices = arr.map(function (value, index) {
+                return index;
+            });
+            indices.sort(function (a, b) {
+                return arr[a] - arr[b];
+            });
+            return indices.slice(0, count);
+        }
+
+        $(document).ready(function () {
+            fetch('https://playourshiny.duckdns.org/songdatabase', { mode: 'cors' })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('API response failed');
+                }
+                return response.json();
+            })
+            .then(data => {
+                for (const row of data) {
+                    // BUG warning/resolution - DataTable requires row to be single append
+                    $('#flaskBody').append('<tr><td>' +
+                        row.id + '</td><td>' +
+                        row.title + '</td><td>' +
+                        row.artist + '</td><td>' +
+                        row.top_genre + '</td><td>' +
+                        row.year + '</td><td>' +
+                        row.bpm + '</td><td>' +
+                        row.energy + '</td><td>' +
+                        row.danceability + '</td><td>' +
+                        row.loudness + '</td><td>' +
+                        row.liveness + '</td><td>' +
+                        row.valence + '</td><td>' +
+                        row.lencth + '</td><td>' +
+                        row.acousticness + '</td><td>' +
+                        row.speechiness + '</td><td>' +
+                        row.popularity + '</td></tr>');
+                }
+                // BUG warning - Jupyter does not show DataTable controls, works on deployed GitHub pages
+                $("#flaskTable").DataTable();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    </script>
 </body>
-
-<script>
-  $(document).ready(function() {
-    $("button").click(function() {
-      $(this).addClass("button-rotate");
-      $(this).text(""); // Clear the text inside the button
-      $(this).css("width", "0.5%"); // Decrease the width of the button by 50%
-    });
-  });
-
-/* document.getElementById("link").addEventListener("click", function() {
-  window.location.href = "https://jiya-sav.github.io/SSJN/data/songs";
-});  
-
-   function getSongs(){
-    //document.getElementById("emotion").value = emotion;
-   var type = document.getElementById("emotion").value;
-   // synonyms are added by || type== ''
-   if(type=='joyous' || type == 'happy' || type== 'elated' || type== 'cheerful' || type== 'content' || type== 'gleeful' || type== 'delighted' || type== 'jolly'){
-    document.getElementById("song").innerHTML = (GetRandom(happy));
-     }
-   else if(type=='melancholy' || type=='sad' || type== 'unhappy' || type== 'dejected' || type== 'sorrowful' || type== 'depressed' || type== 'miserable' || type== 'pessimistic' || type== 'mournful' || type== 'heartbroken'){
-    document.getElementById("song").innerHTML = (GetRandom(sad));
-      }
-   else if(type=='rage' || type== 'angry' || type== 'furious'){
-    document.getElementById("song").innerHTML = (GetRandom(rage));
-      }
-   else if(type=='indian' || type=='desi' || type=='south asian' || type =='brown'){
-    document.getElementById("song").innerHTML = (GetRandom(indian));
-      }
-    }
-
-   var emotion = document.getElementById("emotion").value;
-  
-  const url = "https://ssjn.nighthawkcodescrums.gq/api/song/";
-  
-  
-  
-  var sad=[];
-  var happy=[];
-  var rage=[];
-  var indian=[];
-  // fetch - used to GET value from API
-   const response = fetch(url, {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-    mode: "cors",
-    cache: 'default', // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: 'omit' // include, *same-origin, omit
-  }).then(response=> 
-    response.json().then(
-      data => {
-          console.log(data);
-          data.forEach((item) => {
-  console.log('ID: ' + item.id);
-  console.log('Happy: ' + item.happy);
-  console.log('Sad: ' + item.sad);
-  console.log('Rage: ' + item.rage);
-  console.log('Indian: ' + item.indian);
-  console.log('Song: ' + item.song);
-
-  // tried together, if doesnt work, will try writing multiple if for each inequality
-  if(item.happy > item.sad && item.happy > item.rage && item.happy > item.indian){
-    happy.push(item.song);
-  }
-
-  if(item.sad > item.happy && item.sad > item.rage && item.sad > item.indian){
-    sad.push(item.song);
-  }
-
-  if(item.rage > item.happy && item.rage > item.sad && item.rage > item.indian){
-    rage.push(item.song)
-  }
-
-  if(item.indian > item.happy && item.indian > item.sad && item.indian > item.rage){
-    indian.push(item.song);
-  }
-});
-    
-    console.log(happy);
-    console.log(sad);
-    console.log(rage);
-    console.log(indian);
-       //document.getElementById("song").innerHTML = JSON.stringify(data);
-       getSongs();
-    
-    }));
-  
-  
-
-function GetRandom(arr)
-{
-  // Math.RAndon gets a randon number between 0 and 1 and then we multiply it with array length.
-  // Floor gives the he Math.floor() function always rounds down and returns the largest integer less than or equal to a given number.
-  var rI = Math.floor(Math.random() * arr.length); 
-  var rE  = arr[rI];
-  return rE;
-} */
-
-function recommendSongs() {
-  var userInput = document.getElementById("songInput").value;
-  recommendSimilarSongs(userInput);
-}
-
-function recommendSimilarSongs(title) {
-  var features = ['bpm', 'energy', 'danceability', 'loudness', 'valence'];
-
-  fetch('https://playourshiny.duckdns.org/songdatabase')
-      .then(response => response.json())
-      .then(data => {
-          var songData = data;
-
-          var inputIndex;
-          var inputSong = songData.find(function (song, index) {
-              if (song.title.toLowerCase() === title.toLowerCase()) {
-                  inputIndex = index;
-                  return true;
-              }
-              return false;
-          });
-
-          if (!inputSong) {
-              console.log("The title you entered is not in our database. Try another, or fix spelling");
-              return;
-          }
-
-          var similarities = songData.map(function (song, index) {
-              if (index === inputIndex) return Infinity; // Exclude the inputted song
-              return calculateSimilarity(inputSong, song);
-          });
-
-          var topIndices = getTopIndices(similarities, 5);
-
-          var recommendationsDiv = document.getElementById("recommendations");
-          recommendationsDiv.innerHTML = "<p>Based on the song you like: " + title + ", we recommend these five songs for your new playlist:</p><hr>";
-          for (var i = 1; i < topIndices.length + 1; i++) {
-              var index = topIndices[i - 1];
-              var recommendedSong = songData[index];
-              var songTitle = recommendedSong.title;
-              var songArtist = recommendedSong.artist;
-              var recommendation = document.createElement("p");
-              recommendation.textContent = i + ". " + songTitle + " by " + songArtist;
-              recommendationsDiv.appendChild(recommendation);
-          }
-      })
-      .catch(error => {
-          console.error("Error fetching data:", error);
-      });
-}
-
-function calculateSimilarity(song1, song2) {
-  var features = ['bpm', 'energy', 'danceability', 'loudness', 'valence'];
-  var differences = features.map(function (feature) {
-      return Math.abs(song1[feature] - song2[feature]);
-  });
-  return differences.reduce(function (sum, difference) {
-      return sum + difference;
-  }, 0);
-}
-
-function getTopIndices(arr, count) {
-  var indices = arr.map(function (value, index) {
-      return index;
-  });
-  indices.sort(function (a, b) {
-      return arr[a] - arr[b];
-  });
-  return indices.slice(0, count);
-}
-
-</script>
 </html>

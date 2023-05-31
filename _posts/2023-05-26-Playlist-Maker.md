@@ -16,12 +16,6 @@ title: Find New Songs
     <button onclick="recommendSongs()">Recommend</button>
     <div id="recommendations"></div>
 
-  
-<h1>Song Recommendation</h1>
-<input type="text" id="songInput" placeholder="Enter a song title">
-<button onclick="recommendSongs()">Recommend</button>
-<div id="recommendations"></div>
-
 <hr>
 
 <h2>Add a Song to the Database</h2>
