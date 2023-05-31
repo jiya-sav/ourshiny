@@ -130,17 +130,27 @@ window.onload = wrap_img;
 <head>
     <title>About Our Team</title>
     <style>
+    .card-container {
+        width: 300px;
+        height: 400px;
+        perspective: 1000px;
+        margin: 20px;
+        display: inline-block;
+        float: left; /* Add this line to float the card containers next to each other */
+    }
+
+    /* Add this media query to ensure proper alignment on smaller screens */
+    @media (max-width: 960px) {
         .card-container {
-            width: 300px;
-            height: 400px;
-            perspective: 1000px;
-            margin: 20px;
-            display: inline-block;
+            float: none;
+            display: block;
+            margin: 20px auto;
         }
+    }
 
         .card {
             position: relative;
-            width: 75%;
+            width: 90%;
             height: 100%;
             transform-style: preserve-3d;
             transition: transform 1s;
