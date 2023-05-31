@@ -56,7 +56,7 @@ permalink: /about/
         }
 
         .card img {
-            width: 100%;
+            width: 220px;
             height: auto;
             border-radius: 10px;
             margin-bottom: 10px;
@@ -86,7 +86,7 @@ permalink: /about/
     <div class="card-container">
         <div class="card">
             <div class="card-front">
-                <img src="person1.jpg" alt="Kaylee Hou">
+                <img src="https://github.com/jiya-sav/ourshiny/blob/master/images/kaylee.PNG?raw=true" alt="Kaylee Hou">
                 <h3>Kaylee Hou</h3>
             </div>
             <div class="card-back">
@@ -97,7 +97,7 @@ permalink: /about/
     <div class="card-container">
         <div class="card">
             <div class="card-front">
-                <img src="person2.jpg" alt="Sanika Shahapurkar">
+                <img src="https://github.com/jiya-sav/ourshiny/blob/master/images/sanikapic.PNG?raw=true" alt="Sanika Shahapurkar">
                 <h3>Sanika Shahapurkar</h3>
             </div>
             <div class="card-back">
