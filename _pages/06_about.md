@@ -164,6 +164,9 @@ permalink: /about/
 
 - 2021-2022 Archives: <a href="https://padlet.com/jmortensen7/csp2022tri1">Fall</a>, <a href="https://padlet.com/jmortensen7/csp2022tri2">Early Winter</a>, <a href="https://cspcoders.nighthawkcodingsociety.com/">Late     Winter, Spring</a>
 
+## About Our Shiny 
+- We created this website, which would reccommend five songs for you based on a song that you like in order for users to explore new music and artists. 
+
 
 <audio id="myAudio" autoplay loop>
   <source src="{{site.baseurl}}//audios/ebyt.mp3" type="audio/mpeg">
