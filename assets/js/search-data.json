@@ -84,6 +84,17 @@
   
 
   
+      ,"page3": {
+          "title": "Demo",
+          "content": "Song Recommendation . Song Recommendation . . Recommend Get Random Song ID Title Artist Top Genre Year BPM Energy Danceability Loudness Liveness Valence Length Acousticness Speechiness Popularity . Click here to see the top songs! .",
+          "url": "https://jiya-sav.github.io/ourshiny/demo/",
+          "relUrl": "/demo/",
+          "date": ""
+      }
+      
+  
+
+  
 
   
   
@@ -104,7 +115,7 @@
   
 
   
-      ,"page10": {
+      ,"page11": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://jiya-sav.github.io/ourshiny/robots.txt",
