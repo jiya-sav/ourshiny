@@ -303,34 +303,30 @@ window.onload = wrap_img;
       playlistBody.append(row);
     });
 
-    const songIn = document.getElementById('song');
-    const artistIn = document.getElementById('artist');
-    const outputElement = document.getElementById('out');
-
     function songCheck() {
-      const artistl = artistIn.value.toLowerCase();
-      const songl = songIn.value.toLowerCase();
+      const artistl = document.getElementById('artist').value.toLowerCase();
+      const songl = document.getElementById('song').value.toLowerCase();
       const table = document.getElementById('playlistTable');
       const rows = table.getElementsByTagName('tr');
 
       for (let i = 0; i < rows.length; i++) {
-        const row = rows[i];
-        const cells = row.getElementsByTagName('td');
+        const cells = rows[i].getElementsByTagName('td');
 
         const songName = cells[0].innerText.toLowerCase();
         const artistName = cells[1].innerText.toLowerCase();
 
         if (songName.includes(songl) && artistName.includes(artistl)) {
           console.log('This song contains the artist you are looking for!');
-          outputElement.textContent = 'This song contains the artist you are looking for!';
+          document.getElementById('out').textContent = 'This song contains the artist you are looking for!';
           return;
         }
       }
 
       console.log('Song is not in our playlist. Check spelling or enter a different song.');
-      outputElement.textContent = 'Song is not in our playlist. Check spelling or enter a different song.';
+      document.getElementById('out').textContent = 'Song is not in our playlist. Check spelling or enter a different song.';
     }
   </script>
+
 
 
 </body>
