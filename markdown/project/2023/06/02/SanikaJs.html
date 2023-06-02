@@ -244,7 +244,7 @@ window.onload = wrap_img;
                         const specrow = document.querySelector(`#flaskTable tr:nth-child(${i+1})`);
                         const speccells = specrow.querySelectorAll("td");
 
-                        for (let k = 0; k < speccells.length; k++) {
+                        for (let k = 1; k < speccells.length; k++) {
                             const prodcell = prodrow.cells[k];
                             console.log(speccells[k].innerText.toLowerCase());
                             console.log(artistl);
