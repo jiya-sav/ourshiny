@@ -14,13 +14,23 @@ Our project, displayed on the [demo page](https://jiya-sav.github.io/ourshiny/de
 # Key Technicals
 
 ## Playlist Production
-On the backend side, there is a database.
+In our backend Flask application, we leveraged a comprehensive dataset of approximately 2000 songs obtained from Kaggle. To effectively manage this data, we implemented a SQLite database that had all the csv data. 
+
+Then we created a model that defined essential columns from sqlite, providing a structured representation of the song data. We established a dedicated route within our application, allowing users to access a specific URL.
+
+Within this designated route, we retrieved data from the songs table, using a Pandas library to store the queried data as a DataFrame. We transformed this DataFrame into a list of dictionaries, effectively encapsulating the song details into structured JSON. This response, containing the song data in a standardized and accessible format, allowed for efficient communication between the backend and frontend components of the music recommendation site.
 
 ## Search
 Our search feature was done using jquery methods we learned in class during the javascript tutorial lesson.
 
-## Random Song Generator
-A fetch is done
+## Curated Playlist
+Once we deployed our flask, we were able to fetch the link that had the structured JSON. After receiving the data, we assign the response JSON to the songData variable.The song reccomendation function searches for the inputted song title within the dataset using the Array.prototype.find() method. If the inputted song is found, the function identifies its index in the song data array and assigns it to the inputIndex variable. If not, it displays a message in the recommendations section indicating that the song is not available in the database.
+
+The reccomendation function then computes the similarity between the inputted song and all other songs in the dataset. It creates an array of similarities by mapping over the song data array and using the calculateSimilarity() function to calculate the similarity score for each song. The function calls the getTopIndices() function to retrieve the indices of the top five songs with the closest similarity. It takes two song objects (song1 and song2) as parameters. The function compares the absolute differences between corresponding attribute values (e.g., bpm, energy, danceability, loudness, valence) of the two songs. It computes the sum of these differences to obtain a similarity score. The smaller the similarity score, the more similar the songs are considered to be.
+
+## Random Song
+After receiving the data, the function selects a random index within the range of the song data array using the Math.floor(Math.random() * songData.length) expression.
+It retrieves the song object corresponding to the random index and assigns it to the randomSong variable, and then outputs it. 
 
 
 _powered by [fastpages](https://github.com/fastai/fastpages)_
