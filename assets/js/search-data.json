@@ -3,7 +3,7 @@
     
         "post0": {
             "title": "Find An Artist",
-            "content": "Playlist Table . Name Artist . Enter the song: Enter the artist you want to find: Submit . .",
+            "content": ". Enter the song: Enter the artist you want to find: Submit . ID Title Artist . .",
             "url": "https://jiya-sav.github.io/ourshiny/markdown/project/2023/06/02/SanikaJs.html",
             "relUrl": "/markdown/project/2023/06/02/SanikaJs.html",
             "date": " • Jun 2, 2023"

@@ -194,138 +194,105 @@ window.onload = wrap_img;
     <ul id="toc" class="section-nav">
 </ul><body>
 
-  <title>Playlist Table</title>
-  <style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-
-    th, td {
-      padding: 8px;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
-
-    th {
-      background-color: #f2f2f2;
-    }
-  </style>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- load jQuery and DataTables styles and scripts -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
 
 
-  <table id="playlistTable">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Artist</th>
-      </tr>
-    </thead>
-    <tbody id="playlistBody">
-      <!-- Table rows will be dynamically generated here -->
-    </tbody>
-  </table>
+    <div>
+        <label for="song">Enter the song:</label>
+        <input type="text" id="song">
+    </div>
+    <div>
+        <label for="artist">Enter the artist you want to find:</label>
+        <input type="text" id="artist">
+    </div>
+    <button onclick="songCheck()">Submit</button>
+    <p id="out"></p>
+    <table id="flaskTable" class="table" style="width:100%">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Artist</th>
+            </tr>
+        </thead>
+        <tbody id="flaskBody"></tbody>
+    </table>
 
-  <div>
-    <label for="song">Enter the song:</label>
-    <input type="text" id="song">
-  </div>
-  <div>
-    <label for="artist">Enter the artist you want to find:</label>
-    <input type="text" id="artist">
-  </div>
-  <button onclick="songCheck()">Submit</button>
-  <p id="out"></p>
+<script>
+        const table = document.getElementById('flaskTable');
+        const songIn = document.getElementById('song');
+        const artistIn = document.getElementById('artist');
+        const outputElement = document.getElementById('out');
 
-  <script>
-    console.log("Playlist object");
+        function songCheck() {
+            const artistl = artistIn.value.toLowerCase();
+            const songl = songIn.value.toLowerCase();
 
-    class Song {
-      constructor(name, artist) {
-        this.name = name;
-        this.artist = artist;
-      }
+            for (let i = 0; i < table.rows.length; i++) {
+                const row = table.rows[i];
 
-      getJSON() {
-        const obj = { type: typeof this, name: this.name, artist: this.artist };
-        const json = JSON.stringify(obj);
-        return json;
-      }
+                for (let j = 0; j < row.cells.length; j++) {
+                    const cell = row.cells[j];
 
-      logIt() {
-        console.info(this);
-        element.append("Song JSON: <br>");
-        element.append(this.getJSON() + "<br>");
-      }
-    }
+                    if (cell.innerText.toLowerCase().includes(songl)) {
+                        console.log(`Song found in row ${i}`);
+                        const rowIndex = i;
+                        const prodrow = table.rows[rowIndex];
+                        const specrow = document.querySelector(`#flaskTable tr:nth-child(${i+1})`);
+                        const speccells = specrow.querySelectorAll("td");
 
-    class Playlist {
-      constructor(songs) {
-        this.songs = songs;
-      }
+                        for (let k = 1; k < speccells.length; k++) {
+                            const prodcell = prodrow.cells[k];
+                            console.log(speccells[k].innerText.toLowerCase());
+                            console.log(artistl);
 
-      getJSON() {
-        const songArray = this.songs.map(song => song.getJSON());
-        const jsonString = JSON.stringify({ playlist: songArray });
-        return jsonString.replace(/\\+/g, '');
-      }
-
-      logIt() {
-        console.info(this);
-        element.append("Playlist JSON: <br>");
-        element.append(this.getJSON() + "<br>");
-      }
-    }
-
-    function constructPlaylist() {
-      const songs = [
-        new Song("Shake It Off", ["Taylor Swift, Max Martin, Shellback"]),
-        new Song("Getaway Car", "Taylor Swift, Jack Antonoff"),
-        new Song("Boys Don't Cry", "Robert Smith, Lol Tolhurst, Michael Dempsey")
-      ];
-
-      return new Playlist(songs);
-    }
-
-    const playlist = constructPlaylist();
-
-    // Generating the HTML table
-    const playlistTable = $("#playlistTable");
-    const playlistBody = $("#playlistBody");
-
-    playlist.songs.forEach(song => {
-      const row = $("<tr></tr>");
-      const nameCell = $("<td></td>").text(song.name);
-      const artistCell = $("<td></td>").text(Array.isArray(song.artist) ? song.artist.join(", ") : song.artist);
-
-      row.append(nameCell);
-      row.append(artistCell);
-      playlistBody.append(row);
-    });
-
-    function songCheck() {
-      const artistl = document.getElementById('artist').value.toLowerCase();
-      const songl = document.getElementById('song').value.toLowerCase();
-      const table = document.getElementById('playlistTable');
-      const rows = table.getElementsByTagName('tr');
-
-      for (let i = 0; i < rows.length; i++) {
-        const cells = rows[i].getElementsByTagName('td');
-
-        const songName = cells[0].innerText.toLowerCase();
-        const artistName = cells[1].innerText.toLowerCase();
-
-        if (songName.includes(songl) && artistName.includes(artistl)) {
-          console.log('This song contains the artist you are looking for!');
-          document.getElementById('out').textContent = 'This song contains the artist you are looking for!';
-          return;
+                            if (speccells[k].innerText.toLowerCase().includes(artistl)) {
+                                console.log('This song contains the artist you are looking for!');
+                                outputElement.textContent = 'This song contains the artist you are looking for!';
+                                return;
+                            } else {
+                                console.log('This song does not contain the artist you are looking for:(');
+                                outputElement.textContent = 'This song does not contain the artist you are looking for:(';
+                                return;
+                            }
+                        }
+                    } else {
+                        console.log('Song is not in our database. Check spelling or enter a different song.');
+                        outputElement.textContent = 'Song is not in our database. Check spelling or enter a different song.';
+                    }
+                }
+            }
         }
-      }
 
-      console.log('Song is not in our playlist. Check spelling or enter a different song.');
-      document.getElementById('out').textContent = 'Song is not in our playlist. Check spelling or enter a different song.';
-    }
-  </script>
+        $(document).ready(function() {
+            fetch('https://playourshiny.duckdns.org/songdatabase', { mode: 'cors' })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('API response failed');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    for (let i = 0; i < 20; i++) {
+                        const row = data[i];
+                        if (!row) {
+                            break;
+                        }
+                        $('#flaskBody').append('<tr><td>' +
+                            row.id + '</td><td>' +
+                            row.title + '</td><td>' +
+                            row.artist + '</td></tr>');
+                    }
+                    $("#flaskTable").DataTable();
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+</script>
 
 
 
