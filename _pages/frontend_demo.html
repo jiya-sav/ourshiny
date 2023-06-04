@@ -431,6 +431,8 @@ label {
     <a href="https://jiya-sav.github.io/ourshiny/markdown/project/2023/05/23/spotify.html">Click here to see the top songs today!</a>
 </body>
 <script>
+    // generate a random song 
+    // fetches song data from a specified URL and randomly selects a song to display on the webpage.
     function getRandomSong() {
         fetch('https://playourshiny.duckdns.org/songdatabase')
             .then(response => response.json())
@@ -448,6 +450,7 @@ label {
                 console.error("Error fetching data:", error);
             });
     }
+// called when the user clicks the recommend button
 
     function recommendSongs() {
         var userInput = document.getElementById("songInput").value;
@@ -456,12 +459,12 @@ label {
 
     function recommendSimilarSongs(title) {
         var features = ['bpm', 'energy', 'danceability', 'loudness', 'valence'];
-
-        fetch('https://playourshiny.duckdns.org/songdatabase')
+// compares the values for bpm, energy, danceability, loudness, and valence keys 
+        fetch('https://playourshiny.duckdns.org/songdatabase') // fetch deployed flask
             .then(response => response.json())
             .then(data => {
                 var songData = data;
-
+  // Find the index of the input song in the songData array
                 var inputIndex;
                 var inputSong = songData.find(function (song, index) {
                     if (song.title.toLowerCase() === title.toLowerCase()) {
@@ -471,19 +474,21 @@ label {
                     return false;
                 });
 
+                // If the input song is not found, display a message and return
                 if (!inputSong) {
                     var recommendationsDiv = document.getElementById("recommendations");
                     recommendationsDiv.innerHTML = "<p>Unfortunately, we don't have that song in our database.</p>";
                     return;
                 }
 
+                // Calculate similarities between the input song and all other songs
                 var similarities = songData.map(function (song, index) {
                     if (index === inputIndex) return Infinity; // Exclude the inputted song
                     return calculateSimilarity(inputSong, song);
                 });
-
+// get the top five indices 
                 var topIndices = getTopIndices(similarities, 5);
-
+// Display the recommended songs
                 var recommendationsDiv = document.getElementById("recommendations");
                 recommendationsDiv.innerHTML = "<p>Based on the song you like: " + title + ", we recommend these five songs for your new playlist:</p><hr>";
                 for (var i = 1; i < topIndices.length + 1; i++) {
@@ -500,7 +505,7 @@ label {
                 console.error("Error fetching data:", error);
             });
     }
-
+// Calculate the similarity between two songs based on their features
     function calculateSimilarity(song1, song2) {
         var features = ['bpm', 'energy', 'danceability', 'loudness', 'valence'];
         var differences = features.map(function (feature) {
@@ -510,7 +515,8 @@ label {
             return sum + difference;
         }, 0);
     }
-
+    // return the songs with the smallest differences
+// Get the indices of the top 'count' elements in the array
     function getTopIndices(arr, count) {
         var indices = arr.map(function (value, index) {
             return index;
@@ -520,7 +526,7 @@ label {
         });
         return indices.slice(0, count);
     }
-
+    // This code block runs when the document is ready
     $(document).ready(function () {
         fetch('https://playourshiny.duckdns.org/songdatabase', { mode: 'cors' })
         .then(response => {
