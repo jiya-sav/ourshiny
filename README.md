@@ -11,9 +11,6 @@ https://jiya-sav.github.io/ourshiny/
 
 Our project, displayed on the [demo page](https://jiya-sav.github.io/ourshiny/demo/) reccommends similar songs based on the ones you like. This eliminates the common problem of having trouble compling similar songs in a playlist. There is also a random song generator, if you can't think of a song, as well as a search feature, where you can check if our database contains a song of interest before generating a playlist.
 
-# Key Technicals
-
-
 ## Search
 Our search feature was done using jquery methods we learned in class during the javascript tutorial lesson.
 
