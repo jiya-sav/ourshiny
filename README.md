@@ -13,12 +13,6 @@ Our project, displayed on the [demo page](https://jiya-sav.github.io/ourshiny/de
 
 # Key Technicals
 
-## Playlist Production
-In our backend Flask application, we leveraged a comprehensive dataset of approximately 2000 songs obtained from Kaggle. To effectively manage this data, we implemented a SQLite database that had all the csv data. 
-
-Then we created a model that defined essential columns from sqlite, providing a structured representation of the song data. We established a dedicated route within our application, allowing users to access a specific URL.
-
-Within this designated route, we retrieved data from the songs table, using a Pandas library to store the queried data as a DataFrame. We transformed this DataFrame into a list of dictionaries, effectively encapsulating the song details into structured JSON. This response, containing the song data in a standardized and accessible format, allowed for efficient communication between the backend and frontend components of the music recommendation site.
 
 ## Search
 Our search feature was done using jquery methods we learned in class during the javascript tutorial lesson.
