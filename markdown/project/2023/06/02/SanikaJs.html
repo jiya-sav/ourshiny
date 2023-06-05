@@ -222,76 +222,75 @@ window.onload = wrap_img;
 
 
 <script>
-        const table = document.getElementById('flaskTable');
-        const songIn = document.getElementById('song');
-        const artistIn = document.getElementById('artist');
-        const outputElement = document.getElementById('out');
+    const table = document.getElementById('flaskTable');
+    const songIn = document.getElementById('song');
+    const artistIn = document.getElementById('artist');
+    const outputElement = document.getElementById('out');
 
-        function songCheck() {
-            const artistl = artistIn.value.toLowerCase();
-            const songl = songIn.value.toLowerCase();
+    function songCheck() {
+        const artistl = artistIn.value.toLowerCase();
+        const songl = songIn.value.toLowerCase();
 
-            for (let i = 0; i < table.rows.length; i++) {
-                const row = table.rows[i];
+        for (let i = 0; i < table.rows.length; i++) {
+            const row = table.rows[i];
 
-                for (let j = 0; j < row.cells.length; j++) {
-                    const cell = row.cells[j];
+            for (let j = 0; j < row.cells.length; j++) {
+                const cell = row.cells[j];
 
-                    if (cell.innerText.toLowerCase().includes(songl)) {
-                        console.log(`Song found in row ${i}`);
-                        const rowIndex = i;
-                        const prodrow = table.rows[rowIndex];
-                        const specrow = document.querySelector(`#flaskTable tr:nth-child(${i+1})`);
-                        const speccells = specrow.querySelectorAll("td");
+                if (cell.innerText.toLowerCase().includes(songl)) {
+                    console.log(`Song found in row ${i}`);
+                    const rowIndex = i;
+                    const prodrow = table.rows[rowIndex];
+                    const specrow = document.querySelector(`#flaskTable tr:nth-child(${i + 1})`);
+                    const speccells = specrow.querySelectorAll("td");
 
-                        for (let k = 2; k < speccells.length; k++) {
-                            const prodcell = prodrow.cells[k];
-                            console.log(speccells[k].innerText.toLowerCase());
-                            console.log(artistl);
+                    for (let k = 1; k < speccells.length; k++) {
+                        const prodcell = prodrow.cells[k];
+                        console.log(speccells[k].innerText.toLowerCase());
+                        console.log(artistl);
 
-                            if (speccells[k].innerText.toLowerCase().includes(artistl)) {
-                                console.log('This song contains the artist you are looking for!');
-                                outputElement.textContent = 'This song contains the artist you are looking for!';
-                                return;
-                            } else {
-                                console.log('This song does not contain the artist you are looking for:(');
-                                outputElement.textContent = 'This song does not contain the artist you are looking for:(';
-                                return;
-                            }
+                        if (speccells[k].innerText.toLowerCase().includes(artistl)) {
+                            console.log('This song contains the artist you are looking for!');
+                            outputElement.textContent = 'This song contains the artist you are looking for!';
+                            return;
+                        } else {
+                            console.log('This song does not contain the artist you are looking for:(');
+                            outputElement.textContent = 'This song does not contain the artist you are looking for:(';
+                            return;
                         }
-                    } else {
-                        console.log('Song is not in our database. Check spelling or enter a different song.');
-                        outputElement.textContent = 'Song is not in our database. Check spelling or enter a different song.';
                     }
+                } else {
+                    console.log('Song is not in our database. Check spelling or enter a different song.');
+                    outputElement.textContent = 'Song is not in our database. Check spelling or enter a different song.';
                 }
             }
         }
+    }
 
-            $(document).ready(function() {
-                fetch('https://playourshiny.duckdns.org/songdatabase', { mode: 'cors' })
-                    .then(response => {
-                        if (!response.ok) {
-                        throw new Error('API response failed');
+    $(document).ready(function () {
+        fetch('https://playourshiny.duckdns.org/songdatabase', { mode: 'cors' })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('API response failed');
+                }
+                return response.json();
+            })
+            .then(data => {
+                for (let i = 0; i < 20; i++) {
+                    const row = data[i];
+                    if (!row) {
+                        break;
                     }
-                    return response.json();
-                })
-                .then(data => {
-                    for (let i = 0; i < 20; i++) {
-                        const row = data[i];
-                        if (!row) {
-                            break;
-                        }
-                        $('#flaskBody').append('<tr><td>' +
-                            row.id + '</td><td>' +
-                            row.title + '</td><td>' +
-                            row.artist + '</td></tr>');
-                    }
-                    $("#flaskTable").DataTable();
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        });
+                    $('#flaskBody').append('<tr><td>' +
+                        row.title + '</td><td>' +
+                        row.artist + '</td></tr>');
+                }
+                $("#flaskTable").DataTable();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+    });
 </script>
 &lt;/body&gt;
 
