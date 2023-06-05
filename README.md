@@ -14,6 +14,21 @@ Our project, displayed on the [demo page](https://jiya-sav.github.io/ourshiny/de
 ## Search
 Our search feature was done using jquery methods we learned in class during the javascript tutorial lesson.
 
+## Lesson Topics
+Throughout our projects, we stored our data using several methods. We began with a CSV file with many songs and their characteristics. We then organized the data into a Pandas Dataframe. From here we created a database, which allowed our data to fill an SQLite table. We used a database so we can add songs to keep our program up to date, rather than simply working with static data. Lastly, we took the information in the database, and put it into json. This json can be accesed through a URL on our flask, and can be fetched by frontend JavaScript.
+
+1. CSV
+A CSV file is a file that stores text data in a way that it could be later organized into a table or other organized format. CSV stands for comma seperated values.
+
+2. Pandas Dataframe
+A 2 dimentional data structure or array, that allows for the storage and manipulation of data in a tabular format.
+
+3. SQLite Table
+SQLite, is a database engine written in the language C. When we learn to create a database in class, our data then fills a tbale in an db file.
+
+4. JSON
+JSON, as it stands for JavaScript Object Notation, is a format in which data can be organized. This is human readable, and allows for the storage and tranmission of data.
+
 ## Curated Playlist
 Once we deployed our flask, we were able to fetch the link that had the structured JSON. After receiving the data, we assign the response JSON to the songData variable.The song reccomendation function searches for the inputted song title within the dataset using the Array.prototype.find() method. If the inputted song is found, the function identifies its index in the song data array and assigns it to the inputIndex variable. If not, it displays a message in the recommendations section indicating that the song is not available in the database.
 
