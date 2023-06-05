@@ -242,7 +242,7 @@ window.onload = wrap_img;
                     console.log(`Song found in row ${i}`);
                     const rowIndex = i;
                     const prodrow = table.rows[rowIndex];
-                    const specrow = document.querySelector(`#flaskTable tr:nth-child(${i})`);
+                    const specrow = document.querySelector(`#flaskTable tr:nth-child(${i+1})`);
                     const speccells = specrow.querySelectorAll("td");
 
                     for (let k = 1; k < speccells.length; k++) {
