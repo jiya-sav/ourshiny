@@ -231,7 +231,7 @@ window.onload = wrap_img;
         const artistl = artistIn.value.toLowerCase();
         const songl = songIn.value.toLowerCase();
 
-        for (let i = 1; i < table.rows.length; i++) {
+        for (let i = 0; i < table.rows.length; i++) {
             const row = table.rows[i];
 
             for (let j = 0; j < row.cells.length; j++) {
@@ -242,8 +242,8 @@ window.onload = wrap_img;
                     console.log(`Song found in row ${i}`);
                     const rowIndex = i;
                     const prodrow = table.rows[rowIndex];
-                    const specrow = document.querySelector(`#flaskTable tr:nth-child(${i-1})`);
-                    const speccells = specrow.querySelectorAll("td");
+                    const specrow = document.querySelector(`#flaskTable tr:nth-child(${i+1})`);
+                    const speccells = prodrow.querySelectorAll("td");
 
                     for (let k = 1; k < speccells.length; k++) {
                         const prodcell = prodrow.cells[k];
