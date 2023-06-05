@@ -21,13 +21,14 @@ Throughout our projects, we stored our data using several methods. We began with
 A CSV file is a file that stores text data in a way that it could be later organized into a table or other organized format. CSV stands for comma seperated values.
 
 2. Pandas Dataframe
-A 2 dimentional data structure or array, that allows for the storage and manipulation of data in a tabular format.
+A 2 dimentional data structure or array, that allows for the storage and manipulation of data in a tabular format. Some operatins include cleaning, filtering, merging, and grouping.
 
 3. SQLite Table
-SQLite, is a database engine written in the language C. When we learn to create a database in class, our data then fills a tbale in an db file.
+SQLite, is a database engine written in the language C. When we learn to create a database in class, our data then fills a tbale in an db file. This concept can help APCSP students with no background in database management. Students can be introduced to CRUD operations(create, read, update, delete) that can be operated on a table. Working in SQL, structured query language, can help students understand data constraints and how to work with/ organize information.
 
 4. JSON
-JSON, as it stands for JavaScript Object Notation, is a format in which data can be organized. This is human readable, and allows for the storage and tranmission of data.
+JSON, as it stands for JavaScript Object Notation, is a format in which data can be organized. This is human readable, and allows for the storage and tranmission of data through different formats. A lesson for APCSP students on JSON may include topics related to modifying and creating strings in python/ JS. Then, students may explore accessing objects and using APIs to practice conversions between different data formats.
+
 
 ## Curated Playlist
 Once we deployed our flask, we were able to fetch the link that had the structured JSON. After receiving the data, we assign the response JSON to the songData variable.The song reccomendation function searches for the inputted song title within the dataset using the Array.prototype.find() method. If the inputted song is found, the function identifies its index in the song data array and assigns it to the inputIndex variable. If not, it displays a message in the recommendations section indicating that the song is not available in the database.
